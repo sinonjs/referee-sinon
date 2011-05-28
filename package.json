@@ -1,5 +1,26 @@
 {
     "name": "sinon-buster",
-    "version": "0.1.0",
-    "main": "./lib/sinon-buster"
+    "version": "0.2.0",
+    "description": "Sinon spies, stubs and mocks for buster-test",
+    "homepage": "http://busterjs.org/sinon",
+    "contributors": [{
+        "name": "Christian Johansen",
+        "email": "christian@cjohansen.no",
+        "url": "http://cjohansen.no"
+    }, {
+        "name": "August Lilleaas",
+        "email": "august.lilleaas@gmail.com",
+        "url": "http://augustl.com"
+    }],
+    "main": "./lib/sinon-buster",
+    "repository": {
+        "type": "git",
+        "url": "http://git.gitorious.org/sinon/sinon-buster.git"
+    },
+    "dependencies": {
+        "buster-assert": "~0.4",
+        "buster-test": "~0.1",
+        "buster-format": "~0.2.1",
+        "sinon": "~1.1"
+    }
 }

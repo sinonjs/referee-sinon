@@ -1,0 +1,15 @@
+[submodule "node_modules/sinon"]
+	path = node_modules/sinon
+	url = http://github.com/cjohansen/Sinon.JS.git
+[submodule "node_modules/buster-format"]
+	path = node_modules/buster-format
+	url = git@git.cjohansen.no:buster-js/buster-format.git
+[submodule "node_modules/buster-test"]
+	path = node_modules/buster-test
+	url = git@git.cjohansen.no:buster-js/buster-test.git
+[submodule "node_modules/buster-assert"]
+	path = node_modules/buster-assert
+	url = git@git.cjohansen.no:buster-js/buster-assert.git
+[submodule "node_modules/buster-core"]
+	path = node_modules/buster-core
+	url = git@git.cjohansen.no:buster-js/buster-core.git
