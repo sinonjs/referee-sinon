@@ -1,6 +1,8 @@
 require("../lib/sinon-buster");
 var buster = require("buster-test");
-var assert = require("buster-assert");
+buster.assertions = require("buster-assertions");
+var assert = buster.assertions.assert;
+var refute = buster.assertions.refute;
 var sinon = require("sinon");
 
 var testCase = buster.testCase("sinon-buster", {
@@ -36,14 +38,14 @@ var testCase = buster.testCase("sinon-buster", {
 
     "sinon assert failures": {
         "should delegate to buster.assert.fail": function () {
-            sinon.stub(assert, "fail");
+            sinon.stub(buster.assertions, "fail");
 
             try {
                 assert.calledOnce(sinon.spy());
             } catch (e) {}
 
-            var called = assert.fail.calledOnce;
-            assert.fail.restore();
+            var called = buster.assertions.fail.calledOnce;
+            buster.assertions.fail.restore();
 
             assert(called);
         }
@@ -52,7 +54,7 @@ var testCase = buster.testCase("sinon-buster", {
     "sinon assert pass": {
         "should emit pass event through buster.assert": function () {
             var pass = sinon.spy();
-            assert.on("pass", pass);
+            buster.assertions.on("pass", pass);
 
             var spy = sinon.spy();
             spy();
@@ -76,7 +78,7 @@ var testCase = buster.testCase("sinon-buster", {
             var tc = buster.testCase("Sandbox test", {
                 "test sandboxing": function () {
                     this.stub(obj, "method");
-                    assert.notSame(obj.method, meth);
+                    refute.same(obj.method, meth);
                 }
             });
 
