@@ -18,9 +18,9 @@
         "url": "http://git.gitorious.org/sinon/sinon-buster.git"
     },
     "dependencies": {
-        "buster-assertions": "~0.4",
-        "buster-test": "~0.1",
-        "buster-format": "~0.2.1",
+        "buster-assertions": "*",
+        "buster-test": "*",
+        "buster-format": "*",
         "sinon": "~1.1"
     }
 }
