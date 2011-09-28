@@ -3,24 +3,11 @@ var buster = require("buster-test");
 buster.assertions = require("buster-assertions");
 var assert = buster.assertions.assert;
 var refute = buster.assertions.refute;
+var expect = buster.assertions.expect;
 var sinon = require("sinon");
 
 var testCase = buster.testCase("sinon-buster", {
     "assertions": {
-        "should expose sinon assertions through buster.assert": function () {
-            var count = 0;
-
-            for (var prop in sinon.assert) {
-                if (typeof sinon.assert[prop] == "function" &&
-                    prop != "pass" && prop != "fail") {
-                    count++;
-                    assert.isFunction(assert[prop], "Expected assert to expose " + prop);
-                }
-            }
-
-            assert(count > 0);
-        },
-
         "should format assert messages": function () {
             var message;
             var spy = sinon.spy();
@@ -41,7 +28,7 @@ var testCase = buster.testCase("sinon-buster", {
             sinon.stub(buster.assertions, "fail");
 
             try {
-                assert.calledOnce(sinon.spy());
+                sinon.assert.calledOnce(sinon.spy());
             } catch (e) {}
 
             var called = buster.assertions.fail.calledOnce;
@@ -58,7 +45,7 @@ var testCase = buster.testCase("sinon-buster", {
 
             var spy = sinon.spy();
             spy();
-            assert.calledOnce(spy);
+            sinon.assert.calledOnce(spy);
 
             assert(pass.calledOnce);
             assert(pass.calledWith("calledOnce"));
