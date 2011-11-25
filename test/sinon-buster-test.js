@@ -28,7 +28,7 @@ var testCase = buster.testCase("sinon-buster", {
             sinon.stub(buster.assertions, "fail");
 
             try {
-                sinon.assert.calledOnce(sinon.spy());
+                assert.calledOnce(sinon.spy());
             } catch (e) {}
 
             var called = buster.assertions.fail.calledOnce;
@@ -45,10 +45,10 @@ var testCase = buster.testCase("sinon-buster", {
 
             var spy = sinon.spy();
             spy();
-            sinon.assert.calledOnce(spy);
+            assert.calledOnce(spy);
 
             assert(pass.calledOnce);
-            assert(pass.calledWith("calledOnce"));
+            assert(pass.calledWith("assert.calledOnce"));
         }
     },
 
@@ -89,7 +89,7 @@ var testCase = buster.testCase("sinon-buster", {
 
             this.runner.on("suite:end", function (results) {
                 done(function () {
-                    assert.isFalse(results.ok);
+                    refute(results.ok);
                     assert.same(obj.method, meth);
                 });
             });
