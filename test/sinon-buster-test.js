@@ -433,7 +433,7 @@ buster.testRunner.assertionCount = function () {
 };
 
 var runner = buster.testRunner.create();
-var reporter = buster.reporters.xUnitConsole.create({
+var reporter = buster.reporters.dots.create({
     color: true, bright: true
 }).listen(runner);
 
