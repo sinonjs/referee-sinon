@@ -415,12 +415,10 @@ var testCase = buster.testCase("sinon-buster", {
                 }
             });
 
-            this.runner.on("suite:end", function (results) {
-                done(function () {
-                    refute(results.ok);
-                    assert.same(obj.method, meth);
-                });
-            });
+            this.runner.on("suite:end", done(function (results) {
+                refute(results.ok);
+                assert.same(obj.method, meth);
+            }));
 
             this.runner.runSuite([tc]);
         }
