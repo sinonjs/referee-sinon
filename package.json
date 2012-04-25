@@ -21,7 +21,7 @@
     "dependencies": {
         "buster-core": ">=0.6.0",
         "buster-assertions": ">=0.10",
-        "buster-test": ">=0.5.0",
+        "buster-test": ">=0.5",
         "buster-format": ">=0.5.3",
         "sinon": ">=1.3"
     }
