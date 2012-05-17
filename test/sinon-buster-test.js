@@ -155,6 +155,14 @@ var testCase = buster.testCase("sinon-buster", {
 
                 assert.callOrder(spies[0], spies[1]);
             },
+            
+            "passes when called in order using an array": function () {
+                var spies = [sinon.spy(), sinon.spy()];
+                spies[0]();
+                spies[1]();
+
+                assert.callOrder(spies);
+            },
 
             "formats message": function () {
                 var spies = [sinon.spy(), sinon.spy()];
