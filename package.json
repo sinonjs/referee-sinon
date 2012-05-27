@@ -16,7 +16,7 @@
     "main": "./lib/buster-sinon",
     "repository": {
         "type": "git",
-        "url": "git://gitorious.org/buster/sinon-buster.git"
+        "url": "git://gitorious.org/buster/buster-sinon.git"
     },
     "scripts": {
         "test": "./run-tests"
