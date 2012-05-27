@@ -1,2 +1,2 @@
 #!/usr/bin/env node
-require("./test/sinon-buster-test.js");
+require("./test/buster-sinon-test.js");

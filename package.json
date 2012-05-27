@@ -1,5 +1,5 @@
 {
-    "name": "sinon-buster",
+    "name": "buster-sinon",
     "version": "0.5.0",
     "description": "Sinon spies, stubs and mocks for buster-test",
     "homepage": "http://busterjs.org/sinon",
@@ -13,7 +13,7 @@
         "email": "august.lilleaas@gmail.com",
         "url": "http://augustl.com"
     }],
-    "main": "./lib/sinon-buster",
+    "main": "./lib/buster-sinon",
     "repository": {
         "type": "git",
         "url": "git://gitorious.org/buster/sinon-buster.git"

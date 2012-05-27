@@ -1,4 +1,4 @@
-require("../lib/sinon-buster");
+require("../lib/buster-sinon");
 var buster = require("buster-test");
 buster.assertions = require("buster-assertions");
 var assert = buster.assertions.assert;
