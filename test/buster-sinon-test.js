@@ -42,7 +42,7 @@ function assertRequiresSpy(assertion) {
     };
 }
 
-var testCase = buster.testCase("sinon-buster", {
+var testCase = buster.testCase("buster-sinon", {
     "assertions": {
         "formats assert messages": function () {
             var message;
