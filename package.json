@@ -1,6 +1,6 @@
 {
     "name": "buster-sinon",
-    "version": "0.5.0",
+    "version": "0.5.1",
     "description": "Sinon spies, stubs and mocks for buster-test",
     "homepage": "http://busterjs.org/sinon",
     "author": {
@@ -22,10 +22,10 @@
         "test": "./run-tests"
     },
     "dependencies": {
-        "buster-core": ">=0.6.0",
-        "buster-assertions": ">=0.10",
-        "buster-test": ">=0.5",
-        "buster-format": ">=0.5.3",
+        "buster-core": ">=0.6.2",
+        "buster-assertions": ">=0.10.2",
+        "buster-test": ">=0.6",
+        "buster-format": ">=0.5.4",
         "sinon": ">=1.3"
     }
 }
