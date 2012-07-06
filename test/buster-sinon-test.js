@@ -388,6 +388,35 @@ var testCase = buster.testCase("buster-sinon", {
         }
     },
 
+    "sinon mock expectation failures": {
+        "delegates to buster.assert.fail": function () {
+            sinon.stub(buster.assertions, "fail");
+
+            try {
+                sinon.mock().never()();
+            } catch (e) {}
+
+            var called = buster.assertions.fail.calledOnce;
+            buster.assertions.fail.restore();
+
+            assert(called);
+        }
+    },
+
+    "sinon mock expectation pass": {
+        "emits pass event through buster.assert": function () {
+            var pass = sinon.spy();
+            buster.assertions.on("pass", pass);
+
+            var expectation = sinon.mock().once();
+            expectation();
+            expectation.verify();
+
+            assert(pass.calledOnce);
+            assert.match(pass.args[0][0], "Expectation met");
+        }
+    },
+
     "test runner integration": {
         setUp: function () {
             this.meth = function () {};
