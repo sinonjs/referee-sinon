@@ -1,6 +1,6 @@
 {
     "name": "buster-sinon",
-    "version": "0.5.1",
+    "version": "0.6.0",
     "description": "Sinon spies, stubs and mocks for buster-test",
     "homepage": "http://busterjs.org/sinon",
     "author": {
