@@ -104,6 +104,54 @@ var testCase = buster.testCase("buster-sinon", {
             }
         },
 
+        "calledWithMatch": {
+            "fails when not called with function": assertRequiresFunction("calledWithMatch"),
+            "fails when not called with spy": assertRequiresSpy("calledWithMatch"),
+
+            "passes when spy is passed matching object": function () {
+                var spy = sinon.spy();
+                spy({ check: 123 });
+
+                refute.calledWithMatch(spy, { test : 123 });
+            },
+
+            "formats message nicely": function () {
+                var spy = sinon.spy();
+                spy({ check: 123 });
+
+                try {
+                    assert.calledWithMatch(spy, { check : 321 });
+                } catch (e) {
+                    assert.equals(e.message, "[assert.calledWithMatch] Expected spy to be called with matching arguments { check: 321 }\n    spy({ check: 123 })");
+                }
+            }
+        },
+
+        "alwaysCalledWithMatch": {
+            "fails when not called with function": assertRequiresFunction("alwaysCalledWithMatch"),
+            "fails when not called with spy": assertRequiresSpy("alwaysCalledWithMatch"),
+
+            "passes when spy is always passed matching object": function () {
+                var spy = sinon.spy();
+                spy({ check: 123 });
+                spy({ check: 321 });
+
+                refute.alwaysCalledWithMatch(spy, { test : 123 });
+            },
+
+            "formats message nicely": function () {
+                var spy = sinon.spy();
+                spy({ check: 123 });
+                spy({ check: 321 });
+
+                try {
+                    assert.alwaysCalledWithMatch(spy, { check : 321 });
+                } catch (e) {
+                    assert.equals(e.message, "[assert.alwaysCalledWithMatch] Expected spy to always be called with matching arguments { check: 321 }\n    spy({ check: 123 })\n    spy({ check: 321 })");
+                }
+            }
+        },
+
         "calledOnce": {
             "fails when not called with function": assertRequiresFunction("calledOnce"),
             "fails when not called with spy": assertRequiresSpy("calledOnce"),
