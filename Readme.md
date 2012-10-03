@@ -1,5 +1,5 @@
-# buster-sinon
+# referee-sinon
 
-[![Build status](https://secure.travis-ci.org/busterjs/buster-sinon.png?branch=master)](http://travis-ci.org/busterjs/buster-sinon)
+[![Build status](https://secure.travis-ci.org/busterjs/referee-sinon.png?branch=master)](http://travis-ci.org/busterjs/referee-sinon)
 
-Sinon.JS integration for Buster.JS
+Sinon.JS assertions for the referee assertion library.

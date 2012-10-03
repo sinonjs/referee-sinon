@@ -1,12 +1,18 @@
-require("../lib/buster-sinon");
+require("../lib/referee-sinon");
 var buster = require("buster-test");
-buster.assertions = require("buster-assertions");
-var assert = buster.assertions.assert;
-var refute = buster.assertions.refute;
-var expect = buster.assertions.expect;
 var sinon = require("sinon");
+var referee = require("referee");
+var formatio = require("formatio");
+var assert = referee.assert;
+var refute = referee.refute;
+var expect = referee.expect;
 
-function assertRequiresFunction(assertion) {
+var formatter = formatio.configure({ quoteStrings: false });
+referee.format = function () {
+    return formatter.ascii.apply(formatter, arguments);
+};
+
+function requiresFunction(assertion) {
     var args = [32].concat([].slice.call(arguments, 1));
 
     return function () {
@@ -18,13 +24,13 @@ function assertRequiresFunction(assertion) {
 
         try {
             refute[assertion].apply(assert, args);
-        } catch (e) {
-            assert.match(e.message, "32 is not a function");
+        } catch (err) {
+            assert.match(err.message, "32 is not a function");
         }
     };
 }
 
-function assertRequiresSpy(assertion) {
+function requiresSpy(assertion) {
     var args = [function () {}].concat([].slice.call(arguments, 1));
 
     return function () {
@@ -36,15 +42,20 @@ function assertRequiresSpy(assertion) {
 
         try {
             refute[assertion].apply(assert, args);
-        } catch (e) {
-            assert.match(e.message, "is not stubbed");
+        } catch (err) {
+            assert.match(err.message, "is not stubbed");
         }
     };
 }
 
-var testCase = buster.testCase("buster-sinon", {
+var testCase = buster.testCase("referee-sinon", {
     "assertions": {
-        "formats assert messages": function () {
+        tearDown: function () {
+            if (referee.format.restore) { referee.format.restore(); }
+        },
+
+        "formats assert messages through referee": function () {
+            sinon.stub(referee, "format").returns("I'm the object");
             var message;
             var spy = sinon.spy();
             spy({ id: 42 });
@@ -55,12 +66,13 @@ var testCase = buster.testCase("buster-sinon", {
                 message = e.message;
             }
 
-            assert.match(message, "{ id: 42 }");
+            assert.match(message, "I'm the object");
         },
 
         "calledWith": {
-            "fails when not called with function": assertRequiresFunction("calledWith"),
-            "fails when not called with spy": assertRequiresSpy("calledWith"),
+            "fails when not called with function":
+                requiresFunction("calledWith"),
+            "fails when not called with spy": requiresSpy("calledWith"),
 
             "passes when spy is explicitly passed null": function () {
                 var spy = sinon.spy();
@@ -76,14 +88,18 @@ var testCase = buster.testCase("buster-sinon", {
                 try {
                     assert.calledWith(spy, null, 2, 2);
                 } catch (e) {
-                    assert.equals(e.message, "[assert.calledWith] Expected spy to be called with arguments null, 2, 2\n    spy(null, 1, 2)");
+                    var message = "[assert.calledWith] Expected function " +
+                            "spy() {} to be called with arguments null, 2, 2" +
+                            "\n    spy(null, 1, 2)";
+                    assert.equals(e.message, message);
                 }
             }
         },
 
         "calledWithExactly": {
-            "fails when not called with function": assertRequiresFunction("calledWithExactly"),
-            "fails when not called with spy": assertRequiresSpy("calledWithExactly"),
+            "fails when not called with function":
+                requiresFunction("calledWithExactly"),
+            "fails when not called with spy": requiresSpy("calledWithExactly"),
 
             "passes when spy is explicitly passed null": function () {
                 var spy = sinon.spy();
@@ -99,14 +115,18 @@ var testCase = buster.testCase("buster-sinon", {
                 try {
                     assert.calledWithExactly(spy, null, 2, 2);
                 } catch (e) {
-                    assert.equals(e.message, "[assert.calledWithExactly] Expected spy to be called with exact arguments null, 2, 2\n    spy(null, 1, 2)");
+                    var message = "[assert.calledWithExactly] Expected " +
+                            "function spy() {} to be called with exact " +
+                            "arguments null, 2, 2\n    spy(null, 1, 2)";
+                    assert.equals(e.message, message);
                 }
             }
         },
 
         "calledWithMatch": {
-            "fails when not called with function": assertRequiresFunction("calledWithMatch"),
-            "fails when not called with spy": assertRequiresSpy("calledWithMatch"),
+            "fails when not called with function":
+                requiresFunction("calledWithMatch"),
+            "fails when not called with spy": requiresSpy("calledWithMatch"),
 
             "passes when spy is passed matching object": function () {
                 var spy = sinon.spy();
@@ -122,14 +142,19 @@ var testCase = buster.testCase("buster-sinon", {
                 try {
                     assert.calledWithMatch(spy, { check : 321 });
                 } catch (e) {
-                    assert.equals(e.message, "[assert.calledWithMatch] Expected spy to be called with matching arguments { check: 321 }\n    spy({ check: 123 })");
+                    var message = "[assert.calledWithMatch] Expected " +
+                            "function spy() {} to be called with matching " +
+                            "arguments { check: 321 }\n    spy({ check: 123 })";
+                    assert.equals(e.message, message);
                 }
             }
         },
 
         "alwaysCalledWithMatch": {
-            "fails when not called with function": assertRequiresFunction("alwaysCalledWithMatch"),
-            "fails when not called with spy": assertRequiresSpy("alwaysCalledWithMatch"),
+            "fails when not called with function":
+                requiresFunction("alwaysCalledWithMatch"),
+            "fails when not called with spy":
+                requiresSpy("alwaysCalledWithMatch"),
 
             "passes when spy is always passed matching object": function () {
                 var spy = sinon.spy();
@@ -147,14 +172,19 @@ var testCase = buster.testCase("buster-sinon", {
                 try {
                     assert.alwaysCalledWithMatch(spy, { check : 321 });
                 } catch (e) {
-                    assert.equals(e.message, "[assert.alwaysCalledWithMatch] Expected spy to always be called with matching arguments { check: 321 }\n    spy({ check: 123 })\n    spy({ check: 321 })");
+                    var message = "[assert.alwaysCalledWithMatch] Expected " +
+                            "function spy() {} to always be called with " +
+                            "matching arguments { check: 321 }\n    spy({ " +
+                            "check: 123 })\n    spy({ check: 321 })";
+                    assert.equals(e.message, message);
                 }
             }
         },
 
         "calledOnce": {
-            "fails when not called with function": assertRequiresFunction("calledOnce"),
-            "fails when not called with spy": assertRequiresSpy("calledOnce"),
+            "fails when not called with function":
+                requiresFunction("calledOnce"),
+            "fails when not called with spy": requiresSpy("calledOnce"),
 
             "passes when called once": function () {
                 var spy = sinon.spy();
@@ -167,14 +197,16 @@ var testCase = buster.testCase("buster-sinon", {
                 try {
                     assert.calledOnce(sinon.spy());
                 } catch (e) {
-                    assert.equals(e.message, "[assert.calledOnce] Expected spy to be called once but was called 0 times");
+                    var message = "[assert.calledOnce] Expected function " +
+                            "spy() {} to be called once but was called 0 times";
+                    assert.equals(e.message, message);
                 }
             }
         },
 
         "called": {
-            "fails when not called with function": assertRequiresFunction("called"),
-            "fails when not called with spy": assertRequiresSpy("called"),
+            "fails when not called with function": requiresFunction("called"),
+            "fails when not called with spy": requiresSpy("called"),
 
             "passes when called once": function () {
                 var spy = sinon.spy();
@@ -187,14 +219,18 @@ var testCase = buster.testCase("buster-sinon", {
                 try {
                     assert.called(sinon.spy());
                 } catch (e) {
-                    assert.equals(e.message, "[assert.called] Expected spy to be called at least once but was never called");
+                    var message = "[assert.called] Expected function spy() " +
+                            "{} to be called at least once but was never " +
+                            "called";
+                    assert.equals(e.message, message);
                 }
             }
         },
 
         "callOrder": {
-            "fails when not called with function": assertRequiresFunction("callOrder"),
-            "fails when not called with spy": assertRequiresSpy("callOrder"),
+            "fails when not called with function":
+                requiresFunction("callOrder"),
+            "fails when not called with spy": requiresSpy("callOrder"),
 
             "passes when called in order": function () {
                 var spies = [sinon.spy(), sinon.spy()];
@@ -203,7 +239,7 @@ var testCase = buster.testCase("buster-sinon", {
 
                 assert.callOrder(spies[0], spies[1]);
             },
-            
+
             "passes when called in order using an array": function () {
                 var spies = [sinon.spy(), sinon.spy()];
                 spies[0]();
@@ -220,14 +256,17 @@ var testCase = buster.testCase("buster-sinon", {
                 try {
                     assert.callOrder(spies[0], spies[1]);
                 } catch (e) {
-                    assert.equals(e.message, "[assert.callOrder] Expected 0, 1 to be called in order but were called as 1, 0");
+                    var message = "[assert.callOrder] Expected 0, 1 to be " +
+                            "called in order but were called as 1, 0";
+                    assert.equals(e.message, message);
                 }
             }
         },
 
         "calledOn": {
-            "fails when not called with function": assertRequiresFunction("calledOn", {}),
-            "fails when not called with spy": assertRequiresSpy("calledOn", {}),
+            "fails when not called with function":
+                requiresFunction("calledOn", {}),
+            "fails when not called with spy": requiresSpy("calledOn", {}),
 
             "passes when called on object": function () {
                 var spy = sinon.spy();
@@ -245,14 +284,18 @@ var testCase = buster.testCase("buster-sinon", {
                 try {
                     assert.calledOn(spy, { id: 12 });
                 } catch (e) {
-                    assert.equals(e.message, "[assert.calledOn] Expected spy to be called with [object Object] as this but was called on { id: 42 }");
+                    var message = "[assert.calledOn] Expected function spy() " +
+                            "{} to be called with { id: 12 } as this but was " +
+                            "called on { id: 42 }";
+                    assert.equals(e.message, message);
                 }
             }
         },
 
         "alwaysCalledOn": {
-            "fails when not called with function": assertRequiresFunction("alwaysCalledOn", {}),
-            "fails when not called with spy": assertRequiresSpy("alwaysCalledOn", {}),
+            "fails when not called with function":
+                requiresFunction("alwaysCalledOn", {}),
+            "fails when not called with spy": requiresSpy("alwaysCalledOn", {}),
 
             "passes when called on object": function () {
                 var spy = sinon.spy();
@@ -270,14 +313,18 @@ var testCase = buster.testCase("buster-sinon", {
                 try {
                     assert.alwaysCalledOn(spy, { id: 12 });
                 } catch (e) {
-                    assert.equals(e.message, "[assert.alwaysCalledOn] Expected spy to always be called with [object Object] as this but was called on { id: 42 }");
+                    var message = "[assert.alwaysCalledOn] Expected function " +
+                            "spy() {} to always be called with { id: 12 } as " +
+                            "this but was called on { id: 42 }";
+                    assert.equals(e.message, message);
                 }
             }
         },
 
         "alwaysCalledWith": {
-            "fails when not called with function": assertRequiresFunction("alwaysCalledWith"),
-            "fails when not called with spy": assertRequiresSpy("alwaysCalledWith"),
+            "fails when not called with function":
+                requiresFunction("alwaysCalledWith"),
+            "fails when not called with spy": requiresSpy("alwaysCalledWith"),
 
             "passes when always called with object": function () {
                 var spy = sinon.spy();
@@ -294,14 +341,19 @@ var testCase = buster.testCase("buster-sinon", {
                 try {
                     assert.alwaysCalledWith(spy, 12);
                 } catch (e) {
-                    assert.equals(e.message, "[assert.alwaysCalledWith] Expected spy to always be called with arguments 12\n    spy(42)");
+                    var message = "[assert.alwaysCalledWith] Expected " +
+                            "function spy() {} to always be called with " +
+                            "arguments 12\n    spy(42)";
+                    assert.equals(e.message, message);
                 }
             }
         },
 
         "alwaysCalledWithExactly": {
-            "fails when not called with function": assertRequiresFunction("alwaysCalledWithExactly"),
-            "fails when not called with spy": assertRequiresSpy("alwaysCalledWithExactly"),
+            "fails when not called with function":
+                requiresFunction("alwaysCalledWithExactly"),
+            "fails when not called with spy":
+                requiresSpy("alwaysCalledWithExactly"),
 
             "fails when spy is explicitly passed null": function () {
                 var spy = sinon.spy();
@@ -317,14 +369,17 @@ var testCase = buster.testCase("buster-sinon", {
                 try {
                     assert.alwaysCalledWithExactly(spy, null, 2, 2);
                 } catch (e) {
-                    assert.equals(e.message, "[assert.alwaysCalledWithExactly] Expected spy to always be called with exact arguments null, 2, 2\n    spy(null, 1, 2)");
+                    var message = "[assert.alwaysCalledWithExactly] Expected " +
+                            "function spy() {} to always be called with " +
+                            "exact arguments null, 2, 2\n    spy(null, 1, 2)";
+                    assert.equals(e.message, message);
                 }
             }
         },
 
         "threw": {
-            "fails when not called with function": assertRequiresFunction("threw"),
-            "fails when not called with spy": assertRequiresSpy("threw"),
+            "fails when not called with function": requiresFunction("threw"),
+            "fails when not called with spy": requiresSpy("threw"),
 
             "passes when spy threw": function () {
                 var spy = sinon.stub().throws();
@@ -338,14 +393,17 @@ var testCase = buster.testCase("buster-sinon", {
                 try {
                     assert.threw(spy);
                 } catch (e) {
-                    assert.equals(e.message, "[assert.threw] Expected spy to throw an exception");
+                    var message = "[assert.threw] Expected function spy() " +
+                            "{} to throw an exception";
+                    assert.equals(e.message, message);
                 }
             }
         },
 
         "alwaysThrew": {
-            "fails when not called with function": assertRequiresFunction("alwaysThrew"),
-            "fails when not called with spy": assertRequiresSpy("alwaysThrew"),
+            "fails when not called with function":
+                requiresFunction("alwaysThrew"),
+            "fails when not called with spy": requiresSpy("alwaysThrew"),
 
             "passes when spy always threw": function () {
                 var spy = sinon.stub().throws();
@@ -359,14 +417,17 @@ var testCase = buster.testCase("buster-sinon", {
                 try {
                     assert.alwaysThrew(spy);
                 } catch (e) {
-                    assert.equals(e.message, "[assert.alwaysThrew] Expected spy to always throw an exception");
+                    var message = "[assert.alwaysThrew] Expected function " +
+                            "spy() {} to always throw an exception";
+                    assert.equals(e.message, message);
                 }
             }
         },
 
         "calledOnceWith": {
-            "fails when not called with function": assertRequiresFunction("calledOnceWith"),
-            "fails when not called with spy": assertRequiresSpy("calledOnceWith"),
+            "fails when not called with function":
+                requiresFunction("calledOnceWith"),
+            "fails when not called with spy": requiresSpy("calledOnceWith"),
 
 
             "passes when called once with object": function () {
@@ -401,31 +462,34 @@ var testCase = buster.testCase("buster-sinon", {
                 try {
                     assert.calledOnceWith(spy, 12);
                 } catch (e) {
-                    assert.equals(e.message, "[assert.calledOnceWith] Expected spy to be called once with arguments 12\n    spy(42)");
+                    var message = "[assert.calledOnceWith] Expected function " +
+                            "spy() {} to be called once with arguments 12\n" +
+                            "    spy(42)";
+                    assert.equals(e.message, message);
                 }
             }
         }
     },
 
     "sinon assert failures": {
-        "delegates to buster.assert.fail": function () {
-            sinon.stub(buster.assertions, "fail");
+        "delegates to referee.assert.fail": function () {
+            sinon.stub(referee, "fail");
 
             try {
                 assert.calledOnce(sinon.spy());
             } catch (e) {}
 
-            var called = buster.assertions.fail.calledOnce;
-            buster.assertions.fail.restore();
+            var called = referee.fail.calledOnce;
+            referee.fail.restore();
 
             assert(called);
         }
     },
 
     "sinon assert pass": {
-        "emits pass event through buster.assert": function () {
+        "emits pass event through referee.assert": function () {
             var pass = sinon.spy();
-            buster.assertions.on("pass", pass);
+            referee.on("pass", pass);
 
             var spy = sinon.spy();
             spy();
@@ -437,24 +501,24 @@ var testCase = buster.testCase("buster-sinon", {
     },
 
     "sinon mock expectation failures": {
-        "delegates to buster.assert.fail": function () {
-            sinon.stub(buster.assertions, "fail");
+        "delegates to referee.assert.fail": function () {
+            sinon.stub(referee, "fail");
 
             try {
                 sinon.mock().never()();
             } catch (e) {}
 
-            var called = buster.assertions.fail.calledOnce;
-            buster.assertions.fail.restore();
+            var called = referee.fail.calledOnce;
+            referee.fail.restore();
 
             assert(called);
         }
     },
 
     "sinon mock expectation pass": {
-        "emits pass event through buster.assert": function () {
+        "emits pass event through referee.assert": function () {
             var pass = sinon.spy();
-            buster.assertions.on("pass", pass);
+            referee.on("pass", pass);
 
             var expectation = sinon.mock().once();
             expectation();
@@ -462,50 +526,6 @@ var testCase = buster.testCase("buster-sinon", {
 
             assert(pass.calledOnce);
             assert.match(pass.args[0][0], "Expectation met");
-        }
-    },
-
-    "test runner integration": {
-        setUp: function () {
-            this.meth = function () {};
-            this.obj = { method: this.meth };
-            this.runner = buster.testRunner.create();
-        },
-
-        "binds sandbox to test": function (done) {
-            var obj = this.obj, meth = this.meth;
-
-            var tc = buster.testCase("Sandbox test", {
-                "test sandboxing": function () {
-                    this.stub(obj, "method");
-                    refute.same(obj.method, meth);
-                }
-            });
-
-            this.runner.on("suite:end", function (results) {
-                assert(results.ok);
-                assert.same(obj.method, meth);
-                done();
-            });
-
-            this.runner.runSuite([tc]);
-        },
-
-        "fails if implicit mock verification fails": function (done) {
-            var obj = this.obj, meth = this.meth;
-
-            var tc = buster.testCase("Sandbox test", {
-                "test implicit verification": function () {
-                    this.mock(obj).expects("method").once();
-                }
-            });
-
-            this.runner.on("suite:end", done(function (results) {
-                refute(results.ok);
-                assert.same(obj.method, meth);
-            }));
-
-            this.runner.runSuite([tc]);
         }
     }
 });
@@ -517,7 +537,8 @@ buster.testRunner.assertionCount = function () {
 
 var runner = buster.testRunner.create();
 var reporter = buster.reporters.dots.create({
-    color: true, bright: true
+    color: true,
+    bright: true
 }).listen(runner);
 
 runner.runSuite([testCase]);

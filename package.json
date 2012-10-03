@@ -1,8 +1,8 @@
 {
-    "name": "buster-sinon",
-    "version": "0.6.0",
-    "description": "Sinon spies, stubs and mocks for buster-test",
-    "homepage": "http://busterjs.org/sinon",
+    "name": "referee-sinon",
+    "version": "0.1.0",
+    "description": "Sinon.JS assertions for referee",
+    "homepage": "http://busterjs.org/docs/referee-sinon",
     "author": {
         "name": "Christian Johansen",
         "email": "christian@cjohansen.no",
@@ -12,20 +12,35 @@
         "name": "August Lilleaas",
         "email": "august.lilleaas@gmail.com",
         "url": "http://augustl.com"
+    }, {
+        "name": "Luís Cardoso",
+        "email": "lfac.pt@gmail.com"
+    }, {
+        "name": "Malcolm Locke",
+        "email": "malc@wholemeal.co.nz"
+    }, {
+        "name": "Max Antoni",
+        "email": "mail@maxantoni.de",
+        "url": "http://maxantoni.de"
+    }, {
+        "name": "Stein Magnus Jodal",
+        "email": "stein.magnus@jodal.no",
+        "url": "http://jodal.no"
     }],
-    "main": "./lib/buster-sinon",
+    "main": "./lib/referee-sinon",
     "repository": {
         "type": "git",
-        "url": "git://gitorious.org/buster/buster-sinon.git"
+        "url": "https://github.com/busterjs/referee-sinon"
     },
     "scripts": {
         "test": "./run-tests"
     },
     "dependencies": {
-        "buster-core": ">=0.6.2",
-        "buster-assertions": ">=0.10.2",
-        "buster-test": ">=0.6",
-        "buster-format": ">=0.5.4",
+        "referee": "~0.11",
         "sinon": ">=1.4"
+    },
+    "devDependencies": {
+        "buster-test": "*",
+        "formatio": "*"
     }
 }
