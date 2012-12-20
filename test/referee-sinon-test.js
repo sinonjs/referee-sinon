@@ -532,7 +532,7 @@ var testCase = buster.testCase("referee-sinon", {
 
 var runner = buster.testRunner.create();
 referee.on("pass", runner.assertionPass.bind(runner));
-var reporter = buster.reporters.dots.create({
+var reporter = buster.reporters.defaultReporter.create({
     color: true,
     bright: true
 }).listen(runner);
