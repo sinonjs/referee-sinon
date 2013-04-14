@@ -1,4 +1,3 @@
-require("../lib/referee-sinon");
 var buster = require("buster-test");
 var sinon = require("sinon");
 var referee = require("referee");
@@ -6,6 +5,7 @@ var formatio = require("formatio");
 var assert = referee.assert;
 var refute = referee.refute;
 var expect = referee.expect;
+require("../lib/referee-sinon")(referee, sinon);
 
 var formatter = formatio.configure({ quoteStrings: false });
 referee.format = function () {

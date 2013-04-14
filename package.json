@@ -33,14 +33,12 @@
         "url": "https://github.com/busterjs/referee-sinon"
     },
     "scripts": {
-        "test": "./run-tests"
-    },
-    "dependencies": {
-        "referee": "~0.11",
-        "sinon": ">=1.4"
+        "test": "node run-tests.js"
     },
     "devDependencies": {
         "buster-test": "*",
-        "formatio": "*"
+        "formatio": "*",
+        "referee": "~0.11",
+        "sinon": ">=1.4"
     }
 }
