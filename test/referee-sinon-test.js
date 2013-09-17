@@ -93,7 +93,18 @@ var testCase = buster.testCase("referee-sinon", {
                             "\n    spy(null, 1, 2)";
                     assert.equals(e.message, message);
                 }
-            }
+            },
+
+            "doesn't pass undefined to [].slice (IE8 doesn't like that)":
+                function () {
+
+                    var spy = sinon.spy();
+                    spy('foo');
+                    sinon.spy(Array.prototype, "slice");
+
+                    assert.calledWith(spy, 'foo');
+                    assert.calledWithExactly(Array.prototype.slice, 1);
+                }
         },
 
         "calledWithExactly": {
