@@ -33,7 +33,8 @@
         "url": "https://github.com/busterjs/referee-sinon"
     },
     "scripts": {
-        "test": "node run-tests.js"
+        "test": "node run-tests.js",
+        "test-debug": "node --debug-brk run-tests.js"
     },
     "devDependencies": {
         "buster-test": "*",
