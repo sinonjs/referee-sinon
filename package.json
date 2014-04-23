@@ -1,6 +1,6 @@
 {
     "name": "referee-sinon",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Sinon.JS assertions for referee",
     "homepage": "http://busterjs.org/docs/referee-sinon",
     "author": {
