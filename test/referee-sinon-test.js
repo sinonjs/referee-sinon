@@ -482,6 +482,23 @@ var testCase = buster.testCase("referee-sinon", {
         }
     },
 
+    "expectations": {
+        "toHaveBeenCalledWithMatch": function () {
+            var stub = sinon.stub(assert, "calledWithMatch");
+
+            expect().toHaveBeenCalledWithMatch();
+
+            assert.calledOnce(stub);
+        },
+        "toHaveAlwaysBeenCalledWithMatch": function () {
+            var stub = sinon.stub(assert, "alwaysCalledWithMatch");
+
+            expect().toHaveAlwaysBeenCalledWithMatch();
+
+            assert.calledOnce(stub);
+        }
+    },
+
     "sinon assert failures": {
         "delegates to referee.assert.fail": function () {
             sinon.stub(referee, "fail");
