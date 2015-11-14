@@ -41,10 +41,14 @@ function requiresSpy(assertion) {
 }
 
 var testCase = buster.testCase("referee-sinon", {
+    tearDown: function () {
+        if (referee.format.restore) { referee.format.restore(); }
+        if (referee.fail.restore) { referee.fail.restore(); }
+        if (assert.calledWithMatch.restore) { assert.calledWithMatch.restore(); }
+        if (assert.alwaysCalledWithMatch.restore) { assert.alwaysCalledWithMatch.restore(); }
+    },
+
     "assertions": {
-        tearDown: function () {
-            if (referee.format.restore) { referee.format.restore(); }
-        },
 
         "formats assert messages through referee": function () {
             sinon.stub(referee, "format").returns("I'm the object");
@@ -502,10 +506,7 @@ var testCase = buster.testCase("referee-sinon", {
                 assert.calledOnce(sinon.spy());
             } catch (e) {}
 
-            var called = referee.fail.calledOnce;
-            referee.fail.restore();
-
-            assert(called);
+            assert(referee.fail.calledOnce);
         }
     },
 
@@ -531,10 +532,7 @@ var testCase = buster.testCase("referee-sinon", {
                 sinon.mock().never()();
             } catch (e) {}
 
-            var called = referee.fail.calledOnce;
-            referee.fail.restore();
-
-            assert(called);
+            assert(referee.fail.calledOnce);
         }
     },
 
