@@ -16,17 +16,13 @@ function requiresFunction(assertion) {
     var args = [32].concat([].slice.call(arguments, 1));
 
     return function () {
-        try {
+        assert.exception(function () {
             assert[assertion].apply(assert, args);
-        } catch (e) {
-            assert.match(e.message, "32 is not a function");
-        }
+        }, {message: "32 is not a function"});
 
-        try {
+        assert.exception(function () {
             refute[assertion].apply(assert, args);
-        } catch (err) {
-            assert.match(err.message, "32 is not a function");
-        }
+        }, {message: "32 is not a function"});
     };
 }
 
@@ -34,25 +30,25 @@ function requiresSpy(assertion) {
     var args = [function () {}].concat([].slice.call(arguments, 1));
 
     return function () {
-        try {
+        assert.exception(function () {
             assert[assertion].apply(assert, args);
-        } catch (e) {
-            assert.match(e.message, "is not stubbed");
-        }
+        }, {message: "is not stubbed"});
 
-        try {
+        assert.exception(function () {
             refute[assertion].apply(assert, args);
-        } catch (err) {
-            assert.match(err.message, "is not stubbed");
-        }
+        }, {message: "is not stubbed"});
     };
 }
 
 var testCase = buster.testCase("referee-sinon", {
+    tearDown: function () {
+        if (referee.format.restore) { referee.format.restore(); }
+        if (referee.fail.restore) { referee.fail.restore(); }
+        if (assert.calledWithMatch.restore) { assert.calledWithMatch.restore(); }
+        if (assert.alwaysCalledWithMatch.restore) { assert.alwaysCalledWithMatch.restore(); }
+    },
+
     "assertions": {
-        tearDown: function () {
-            if (referee.format.restore) { referee.format.restore(); }
-        },
 
         "formats assert messages through referee": function () {
             sinon.stub(referee, "format").returns("I'm the object");
@@ -91,7 +87,7 @@ var testCase = buster.testCase("referee-sinon", {
                     var message = "[assert.calledWith] Expected function " +
                             "spy() {} to be called with arguments null, 2, 2" +
                             "\n    spy(null, 1, 2)";
-                    assert.equals(e.message, message);
+                    assert.match(e.message, message);
                 }
             },
 
@@ -129,7 +125,7 @@ var testCase = buster.testCase("referee-sinon", {
                     var message = "[assert.calledWithExactly] Expected " +
                             "function spy() {} to be called with exact " +
                             "arguments null, 2, 2\n    spy(null, 1, 2)";
-                    assert.equals(e.message, message);
+                    assert.match(e.message, message);
                 }
             }
         },
@@ -156,7 +152,7 @@ var testCase = buster.testCase("referee-sinon", {
                     var message = "[assert.calledWithMatch] Expected " +
                             "function spy() {} to be called with matching " +
                             "arguments { check: 321 }\n    spy({ check: 123 })";
-                    assert.equals(e.message, message);
+                    assert.match(e.message, message);
                 }
             }
         },
@@ -185,9 +181,12 @@ var testCase = buster.testCase("referee-sinon", {
                 } catch (e) {
                     var message = "[assert.alwaysCalledWithMatch] Expected " +
                             "function spy() {} to always be called with " +
-                            "matching arguments { check: 321 }\n    spy({ " +
-                            "check: 123 })\n    spy({ check: 321 })";
-                    assert.equals(e.message, message);
+                            "matching arguments { check: 321 }";
+                    assert.match(e.message, message);
+                    var lines = e.message.split("\n");
+                    assert.equals(lines.length, 3);
+                    assert.match(lines[1], "    spy({ check: 123 })");
+                    assert.match(lines[2], "    spy({ check: 321 })");
                 }
             }
         },
@@ -210,7 +209,7 @@ var testCase = buster.testCase("referee-sinon", {
                 } catch (e) {
                     var message = "[assert.calledOnce] Expected function " +
                             "spy() {} to be called once but was called 0 times";
-                    assert.equals(e.message, message);
+                    assert.match(e.message, message);
                 }
             }
         },
@@ -355,7 +354,7 @@ var testCase = buster.testCase("referee-sinon", {
                     var message = "[assert.alwaysCalledWith] Expected " +
                             "function spy() {} to always be called with " +
                             "arguments 12\n    spy(42)";
-                    assert.equals(e.message, message);
+                    assert.match(e.message, message);
                 }
             }
         },
@@ -383,7 +382,7 @@ var testCase = buster.testCase("referee-sinon", {
                     var message = "[assert.alwaysCalledWithExactly] Expected " +
                             "function spy() {} to always be called with " +
                             "exact arguments null, 2, 2\n    spy(null, 1, 2)";
-                    assert.equals(e.message, message);
+                    assert.match(e.message, message);
                 }
             }
         },
@@ -406,7 +405,7 @@ var testCase = buster.testCase("referee-sinon", {
                 } catch (e) {
                     var message = "[assert.threw] Expected function spy() " +
                             "{} to throw an exception";
-                    assert.equals(e.message, message);
+                    assert.match(e.message, message);
                 }
             }
         },
@@ -430,7 +429,7 @@ var testCase = buster.testCase("referee-sinon", {
                 } catch (e) {
                     var message = "[assert.alwaysThrew] Expected function " +
                             "spy() {} to always throw an exception";
-                    assert.equals(e.message, message);
+                    assert.match(e.message, message);
                 }
             }
         },
@@ -476,7 +475,7 @@ var testCase = buster.testCase("referee-sinon", {
                     var message = "[assert.calledOnceWith] Expected function " +
                             "spy() {} to be called once with arguments 12\n" +
                             "    spy(42)";
-                    assert.equals(e.message, message);
+                    assert.match(e.message, message);
                 }
             }
         }
@@ -507,10 +506,7 @@ var testCase = buster.testCase("referee-sinon", {
                 assert.calledOnce(sinon.spy());
             } catch (e) {}
 
-            var called = referee.fail.calledOnce;
-            referee.fail.restore();
-
-            assert(called);
+            assert(referee.fail.calledOnce);
         }
     },
 
@@ -536,10 +532,7 @@ var testCase = buster.testCase("referee-sinon", {
                 sinon.mock().never()();
             } catch (e) {}
 
-            var called = referee.fail.calledOnce;
-            referee.fail.restore();
-
-            assert(called);
+            assert(referee.fail.calledOnce);
         }
     },
 
@@ -560,9 +553,11 @@ var testCase = buster.testCase("referee-sinon", {
 
 var runner = buster.testRunner.create();
 referee.on("pass", runner.assertionPass.bind(runner));
-var reporter = buster.reporters.defaultReporter.create({
-    color: true,
-    bright: true
-}).listen(runner);
+buster.reporters.specification
+    .create({
+        color: true,
+        bright: true
+    })
+    .listen(runner);
 
 runner.runSuite([testCase]);

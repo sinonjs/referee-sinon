@@ -38,9 +38,9 @@
         "test-debug": "node --debug-brk run-tests.js"
     },
     "devDependencies": {
-        "buster-test": "*",
-        "formatio": "*",
-        "referee": "~0.11",
-        "sinon": ">=1.4"
+        "buster-test": "0.7.x",
+        "formatio": "1.x",
+        "referee": "1.x",
+        "sinon": "1.x"
     }
 }
