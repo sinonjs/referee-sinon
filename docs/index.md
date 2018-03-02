@@ -2,6 +2,22 @@
 
 Sinon.JS assertions for the referee assertion library.
 
+
+## Usage
+
+```shell
+npm install @sinonjs/referee-sinon --save-dev
+```
+
+```js
+const referee = require("referee");
+const sinon = require("sinon");
+
+// add the Sinon.JS assertions to referee
+require("@sinonjs/referee-sinon")(referee, sinon);
+```
+
+
 ## Assertions
 
 The descriptions are for `assert`, but the corresponding failure messages for `refute` are also mentioned. For refute the behaviour is exactly opposite.
