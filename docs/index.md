@@ -9,6 +9,7 @@ The descriptions are for `assert`, but the corresponding failure messages for `r
 *Overview:*
 
 * [`called()`](#called)
+* [`callCount()`](#callcount)
 * [`callOrder()`](#callorder)
 * [`calledOnce()`](#calledonce)
 * [`calledTwice()`](#calledtwice)
@@ -67,6 +68,42 @@ refute.called.message = "Expected ${0} to not be called but was called ${1}${2}"
     <dt>`${2}`:</dt>
     <dd>All calls formatted as a multi-line string</dd>
 </dl>
+
+### `callCount()`
+
+```js
+assert.callCount(spy, count)
+```
+
+Fails if the `spy`'s `callCount` property is not exactly `count`
+
+```js
+var spy = this.spy();
+
+assert.callCount(spy, 0); // Passes
+assert.callCount(spy, 1); // Fails
+
+spy();
+assert.callCount(spy, 0); // Fails
+assert.callCount(spy, 1); // Passes
+```
+
+#### Messages
+
+```js
+assert.called.message = "Expected ${spyObj} to be called exactly ${expectedTimes} times, but was called ${actualTimes}";
+refute.called.message = "Expected ${spyObj} to not be called exactly ${expectedTimes} times"
+```
+
+<dl>
+    <dt>`${spyObj}`:</dt>
+    <dd>The spy</dd>
+    <dt>`${expectedTimes}`:</dt>
+    <dd>The expected number of calls</dd>
+    <dt>`${actualTimes}`:</dt>
+    <dd>The actual number of calls</dd>
+</dl>
+
 
 ### `callOrder()`
 
