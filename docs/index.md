@@ -17,6 +17,7 @@ The descriptions are for `assert`, but the corresponding failure messages for `r
 * [`calledOn()`](#calledon)
 * [`alwaysCalledOn()`](#alwayscalledon)
 * [`calledWith()`](#calledwith)
+* [`calledWithNew()`](#calledwithnew)
 * [`alwaysCalledWith()`](alwayscalledwith)
 * [`calledOnceWith()`](#calledoncewith)
 * [`calledWithExactly()`](#calledwithexactly)
@@ -375,6 +376,39 @@ refute.calledWith.message = "Expected ${0} not to be called with arguments ${1}$
     <dt>`${2}`:</dt>
     <dd>String representation of all calls</dd>
 </dl>
+
+### `calledWithNew()`
+
+```js
+assert.calledWithNew(spy)
+```
+
+Fails if the `spy` has never called with `new`.
+
+```js
+var spy = this.spy();
+
+assert.calledWithNew(spy); // Fails
+
+new spy();
+assert.calledWithNew(spy); // Passes
+
+spy();
+assert.calledWithNew(spy); // Passes
+```
+
+#### Messages
+
+```js
+assert.calledWithNew.message = "Expected ${spyObj} to be called with 'new' at least once but was never called with 'new'";
+refute.calledWithNew.message = "Expected ${spyObj} to not be called with 'new'";
+```
+
+<dl>
+    <dt>`${spyObj}`:</dt>
+    <dd>The spy</dd>
+</dl>
+
 
 ### `alwaysCalledWith()`
 
