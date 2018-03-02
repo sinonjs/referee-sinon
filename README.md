@@ -1,6 +1,7 @@
 # referee-sinon
 
 [![Build status](https://secure.travis-ci.org/sinonjs/referee-sinon.png?branch=master)](http://travis-ci.org/sinonjs/referee-sinon)
+[![Coverage Status](https://coveralls.io/repos/github/sinonjs/referee-sinon/badge.svg?branch=master)](https://coveralls.io/github/sinonjs/referee-sinon?branch=master)
 
 Sinon.JS assertions for the referee assertion library.
 
