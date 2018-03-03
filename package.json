@@ -11,9 +11,12 @@
     "url": "https://github.com/sinonjs/referee-sinon"
   },
   "scripts": {
+    "build": "run-s build:dist-folder build:bundle",
+    "build:bundle": "rollup -c > dist/referee-sinon.js",
+    "build:dist-folder": "mkdirp dist",
     "lint": "eslint .",
     "precommit": "lint-staged",
-    "prepublishOnly": "mkdocs gh-deploy -r upstream || mkdocs gh-deploy -r origin",
+    "prepublishOnly": "npm run build && mkdocs gh-deploy -r upstream || mkdocs gh-deploy -r origin",
     "test": "mocha 'lib/**/*.test.js'",
     "test-coverage": "nyc --reporter text --reporter html --reporter lcovonly npm run test"
   },
@@ -21,6 +24,7 @@
     "*.js": "eslint"
   },
   "files": [
+    "dist/",
     "docs/",
     "lib/",
     "!lib/**/*.test.js"
@@ -37,5 +41,11 @@
     "nyc": "^11.4.1",
     "referee": "^1.2.0",
     "sinon": "^4.4.2"
+  },
+  "dependencies": {
+    "mkdirp": "^0.5.1",
+    "npm-run-all": "^4.1.2",
+    "rollup": "^0.56.3",
+    "rollup-plugin-commonjs": "^8.3.0"
   }
 }
