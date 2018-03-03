@@ -5,6 +5,26 @@
 
 Sinon.JS assertions for the referee assertion library.
 
+## Usage
+
+```shell
+npm install referee-sinon --save-dev
+```
+
+```js
+const referee = require("referee");
+const sinon = require("sinon");
+
+// add the assertions to referee
+require("referee-sinon")(referee, sinon);
+```
+
+## Documentation
+
+https://sinonjs.github.io/referee-sinon/
+
+
+
 ## Backers
 
 Support us with a monthly donation and help us continue our activities. [[Become a backer](https://opencollective.com/sinon#backer)]

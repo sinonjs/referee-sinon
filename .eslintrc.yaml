@@ -16,7 +16,7 @@ rules:
   ie11/no-loop-func: warn
   ie11/no-weak-collections: error
 
-  max-len: [error, {code: 120, ignoreStrings: true}]
+  max-len: [error, {code: 120, ignoreComments: true, ignoreStrings: true}]
 
 overrides:
     files: '*.test.*'
