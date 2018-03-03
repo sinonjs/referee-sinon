@@ -5,24 +5,30 @@
 
 Sinon.JS assertions for the referee assertion library.
 
+
 ## Usage
 
 ```shell
-npm install referee-sinon --save-dev
+npm install @sinonjs/referee-sinon --save-dev
 ```
 
 ```js
-const referee = require("referee");
+const referee = require("@sinonjs/referee");
 const sinon = require("sinon");
 
 // add the assertions to referee
-require("referee-sinon")(referee, sinon);
+require("@sinonjs/referee-sinon")(referee, sinon);
 ```
+
+
+## Prebuilt global/AMD version
+
+When installing from `npm`, there is a pre-built global/AMD version in the `dist/` folder.
+
 
 ## Documentation
 
 https://sinonjs.github.io/referee-sinon/
-
 
 
 ## Backers
