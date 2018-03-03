@@ -20,6 +20,11 @@
   "lint-staged": {
     "*.js": "eslint"
   },
+  "files": [
+    "docs/",
+    "lib/",
+    "!lib/**/*.test.js"
+  ],
   "devDependencies": {
     "@sinonjs/formatio": "^2.0.0",
     "eslint": "^4.18.1",
