@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="None">
+  
+  <link rel="shortcut icon" href="./img/favicon.ico">
+  <title>referee-sinon - referee-sinon</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="./css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="./css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="./css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "referee-sinon";
+    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_url = "/";
+  </script>
+  
+  <script src="./js/jquery-2.1.1.min.js"></script>
+  <script src="./js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="./js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="." class="icon icon-home"> referee-sinon</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href=".">referee-sinon</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#referee-sinon">referee-sinon</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#usage">Usage</a></li>
+        
+            <li><a class="toctree-l3" href="#assertions">Assertions</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href=".">referee-sinon</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>referee-sinon</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/sinonjs/referee-sinon/edit/master/docs/index.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="referee-sinon">referee-sinon</h1>
+<p>Sinon.JS assertions for the referee assertion library.</p>
+<h2 id="usage">Usage</h2>
+<pre><code class="shell">npm install @sinonjs/referee-sinon --save-dev
+</code></pre>
+
+<pre><code class="js">const referee = require(&quot;referee&quot;);
+const sinon = require(&quot;sinon&quot;);
+
+// add the Sinon.JS assertions to referee
+require(&quot;@sinonjs/referee-sinon&quot;)(referee, sinon);
+</code></pre>
+
+<h2 id="assertions">Assertions</h2>
+<p>The descriptions are for <code>assert</code>, but the corresponding failure messages for <code>refute</code> are also mentioned. For refute the behaviour is exactly opposite.</p>
+<p><em>Overview:</em></p>
+<ul>
+<li><a href="#called"><code>called()</code></a></li>
+<li><a href="#callcount"><code>callCount()</code></a></li>
+<li><a href="#callorder"><code>callOrder()</code></a></li>
+<li><a href="#calledonce"><code>calledOnce()</code></a></li>
+<li><a href="#calledtwice"><code>calledTwice()</code></a></li>
+<li><a href="#calledthrice"><code>calledThrice()</code></a></li>
+<li><a href="#calledon"><code>calledOn()</code></a></li>
+<li><a href="#alwayscalledon"><code>alwaysCalledOn()</code></a></li>
+<li><a href="#calledwith"><code>calledWith()</code></a></li>
+<li><a href="#calledwithnew"><code>calledWithNew()</code></a></li>
+<li><a href="./alwayscalledwith"><code>alwaysCalledWith()</code></a></li>
+<li><a href="./alwayscalledwithnew"><code>alwaysCalledWithNew()</code></a></li>
+<li><a href="#calledoncewith"><code>calledOnceWith()</code></a></li>
+<li><a href="#calledwithexactly"><code>calledWithExactly()</code></a></li>
+<li><a href="#alwayscalledwithexactly"><code>alwaysCalledWithExactly()</code></a></li>
+<li><a href="#threw"><code>threw()</code></a></li>
+<li><a href="#alwaysthrew"><code>alwaysThrew()</code></a></li>
+</ul>
+<h3 id="called"><code>called()</code></h3>
+<pre><code class="js">assert.called(spy)
+</code></pre>
+
+<p>Fails if the <code>spy</code> has never been called.</p>
+<pre><code class="js">var spy = this.spy();
+
+assert.called(spy); // Fails
+
+spy();
+assert.called(spy); // Passes
+
+spy();
+assert.called(spy); // Passes
+</code></pre>
+
+<h4 id="messages">Messages</h4>
+<pre><code class="js">assert.called.message = &quot;Expected ${0} to be called at least once but was never called&quot;;
+</code></pre>
+
+<dl>
+    <dt>`${0}`:</dt>
+    <dd>The spy</dd>
+</dl>
+
+<pre><code class="js">refute.called.message = &quot;Expected ${0} to not be called but was called ${1}${2}&quot;;
+</code></pre>
+
+<dl>
+    <dt>`${0}`:</dt>
+    <dd>The spy</dd>
+    <dt>`${1}`:</dt>
+    <dd>The number of calls as a string. Ex: “two times”</dd>
+    <dt>`${2}`:</dt>
+    <dd>All calls formatted as a multi-line string</dd>
+</dl>
+
+<h3 id="callcount"><code>callCount()</code></h3>
+<pre><code class="js">assert.callCount(spy, count)
+</code></pre>
+
+<p>Fails if the <code>spy</code>'s <code>callCount</code> property is not exactly <code>count</code></p>
+<pre><code class="js">var spy = this.spy();
+
+assert.callCount(spy, 0); // Passes
+assert.callCount(spy, 1); // Fails
+
+spy();
+assert.callCount(spy, 0); // Fails
+assert.callCount(spy, 1); // Passes
+</code></pre>
+
+<h4 id="messages_1">Messages</h4>
+<pre><code class="js">assert.called.message = &quot;Expected ${spyObj} to be called exactly ${expectedTimes} times, but was called ${actualTimes}&quot;;
+refute.called.message = &quot;Expected ${spyObj} to not be called exactly ${expectedTimes} times&quot;
+</code></pre>
+
+<dl>
+    <dt>`${spyObj}`:</dt>
+    <dd>The spy</dd>
+    <dt>`${expectedTimes}`:</dt>
+    <dd>The expected number of calls</dd>
+    <dt>`${actualTimes}`:</dt>
+    <dd>The actual number of calls</dd>
+</dl>
+
+<h3 id="callorder"><code>callOrder()</code></h3>
+<pre><code class="js">assert.callOrder(spy, spy2, ...)
+</code></pre>
+
+<p>Fails if the spies were not called in the specified order.</p>
+<pre><code class="js">var spy1 = this.spy();
+var spy2 = this.spy();
+var spy3 = this.spy();
+
+spy1();
+spy2();
+spy3();
+
+assert.callOrder(spy1, spy3, spy2); // Fails
+assert.callOrder(spy1, spy2, spy3); // Passes
+</code></pre>
+
+<h4 id="messages_2">Messages</h4>
+<pre><code class="js">assert.callOrder.message = &quot;Expected ${expected} to be called in order but were called as ${actual}&quot;;
+refute.callOrder.message = &quot;Expected ${expected} not to be called in order&quot;;
+</code></pre>
+
+<dl>
+    <dt>`${expected}`:</dt>
+    <dd>A string representation of the expected call order</dd>
+    <dt>`${actual}`:</dt>
+    <dd>A string representation of the actual call order</dd>
+</dl>
+
+<h3 id="calledonce"><code>calledOnce()</code></h3>
+<pre><code class="js">assert.calledOnce(spy)
+</code></pre>
+
+<p>Fails if the <code>spy</code> has never been called or if it was called more than once.</p>
+<pre><code class="js">var spy = this.spy();
+
+assert.calledOnce(spy); // Fails
+
+spy();
+assert.calledOnce(spy); // Passes
+
+spy();
+assert.calledOnce(spy); // Fails
+</code></pre>
+
+<h4 id="messages_3">Messages</h4>
+<pre><code>assert.calledOnce.message = &quot;Expected ${0} to be called once but was called ${1}${2}&quot;;
+refute.calledOnce.message = &quot;Expected ${0} to not be called exactly once${2}&quot;;
+</code></pre>
+
+<dl>
+    <dt>`${0}`:</dt>
+    <dd>The spy</dd>
+    <dt>`${1}`:</dt>
+    <dd>The number of calls, as a string. Ex: “two times”</dd>
+    <dt>`${2}`:</dt>
+    <dd>The call log. All calls as a string. Each line is one call and includes passed arguments, returned value and more</dd>
+</dl>
+
+<h3 id="calledtwice"><code>calledTwice()</code></h3>
+<pre><code class="js">assert.calledTwice(spy)
+</code></pre>
+
+<p>Only passes if the <code>spy</code> was called exactly twice.</p>
+<pre><code class="js">var spy = this.spy();
+
+assert.calledTwice(spy); // Fails
+
+spy();
+assert.calledTwice(spy); // Fails
+
+spy();
+assert.calledTwice(spy); // Passes
+
+spy();
+assert.calledTwice(spy); // Fails
+</code></pre>
+
+<h4 id="messages_4">Messages</h4>
+<pre><code class="js">assert.calledTwice.message = &quot;Expected ${0} to be called twice but was called ${1}${2}&quot;;
+refute.calledTwice.message = &quot;Expected ${0} to not be called exactly twice${2}&quot;;
+</code></pre>
+
+<dl>
+    <dt>`${0}`:</dt>
+    <dd>The spy</dd>
+    <dt>`${1}`:</dt>
+    <dd>The number of calls, as a string. Ex: “two times”</dd>
+    <dt>`${2}`:</dt>
+    <dd>The call log. All calls as a string. Each line is one call and includes passed arguments, returned value and more</dd>
+</dl>
+
+<h3 id="calledthrice"><code>calledThrice()</code></h3>
+<pre><code class="js">assert.calledThrice(spy)
+</code></pre>
+
+<p>Only passes if the <code>spy</code> has been called exactly three times.</p>
+<pre><code class="js">var spy = this.spy();
+
+assert.calledThrice(spy); // Fails
+
+spy();
+assert.calledThrice(spy); // Fails
+
+spy();
+assert.calledThrice(spy); // Fails
+
+spy();
+assert.calledThrice(spy); // Passes
+
+spy();
+assert.calledThrice(spy); // Fails
+</code></pre>
+
+<h4 id="messages_5">Messages</h4>
+<pre><code class="js">assert.calledThrice.message = &quot;Expected ${0} to be called thrice but was called ${1}${2}&quot;;
+refute.calledThrice.message = &quot;Expected ${0} to not be called exactly thrice${2}&quot;;
+</code></pre>
+
+<dl>
+    <dt>`${0}`:</dt>
+    <dd>The spy</dd>
+    <dt>`${1}`:</dt>
+    <dd>The number of calls, as a string. Ex: “two times”</dd>
+    <dt>`${2}`:</dt>
+    <dd>The call log. All calls as a string. Each line is one call and includes passed arguments, returned value and more</dd>
+</dl>
+
+<h3 id="calledon"><code>calledOn()</code></h3>
+<pre><code class="js">assert.calledOn(spy, obj)
+</code></pre>
+
+<p>Passes if the <code>spy</code> was called at least once with <code>obj</code> as its <code>this</code> value.</p>
+<pre><code class="js">var spy = this.spy();
+var obj1 = {};
+var obj2 = {};
+var obj3 = {};
+
+spy.call(obj2);
+spy.call(obj3);
+
+assert.calledOn(spy, obj1); // Fails
+assert.calledOn(spy, obj2); // Passes
+assert.calledOn(spy, obj3); // Passes
+</code></pre>
+
+<h4 id="messages_6">Messages</h4>
+<pre><code class="js">assert.calledOn.message = &quot;Expected ${0} to be called with ${1} as this but was called on ${2}&quot;;
+refute.calledOn.message = &quot;Expected ${0} not to be called with ${1} as this&quot;;
+</code></pre>
+
+<dl>
+    <dt>`${0}`:</dt>
+    <dd>The spy</dd>
+    <dt>`${1}`:</dt>
+    <dd>The object obj which is expected to have been this at least once</dd>
+    <dt>`${2}`:</dt>
+    <dd>List of objects which actually have been `this`</dd>
+</dl>
+
+<h3 id="alwayscalledon"><code>alwaysCalledOn()</code></h3>
+<pre><code class="js">assert.alwaysCalledOn(spy, obj)
+</code></pre>
+
+<p>Passes if the <code>spy</code> was always called with <code>obj</code> as its <code>this</code> value.</p>
+<pre><code class="js">var spy1 = this.spy();
+var spy2 = this.spy();
+var obj1 = {};
+var obj2 = {};
+
+spy1.call(obj1);
+spy1.call(obj2);
+
+spy2.call(obj2);
+spy2.call(obj2);
+
+assert.alwaysCalledOn(spy1, obj1); // Fails
+assert.alwaysCalledOn(spy1, obj2); // Fails
+assert.alwaysCalledOn(spy2, obj1); // Fails
+assert.alwaysCalledOn(spy2, obj2); // Passes
+</code></pre>
+
+<h4 id="messages_7">Messages</h4>
+<pre><code class="js">assert.alwaysCalledOn.message = &quot;Expected ${0} to always be called with ${1} as this but was called on ${2}&quot;;
+refute.alwaysCalledOn.message = &quot;Expected ${0} not to always be called with ${1} as this&quot;;
+</code></pre>
+
+<dl>
+    <dt>`${0}`:</dt>
+    <dd>The spy</dd>
+    <dt>`${1}`:</dt>
+    <dd>The object obj which is expected always to have been `this`</dd>
+    <dt>`${2}`:</dt>
+    <dd>List of objects which actually have been `this`</dd>
+</dl>
+
+<h3 id="calledwith"><code>calledWith()</code></h3>
+<pre><code class="js">assert.calledWith(spy, arg1, arg2, ...)
+</code></pre>
+
+<p>Passes if the <code>spy</code> was called at least once with the specified arguments. Other arguments may have been passed after the specified ones.</p>
+<pre><code class="js">var spy = this.spy();
+var arr = [1, 2, 3];
+spy(12);
+spy(42, 13);
+spy(&quot;Hey&quot;, arr, 2);
+
+assert.calledWith(spy, 12);         // Passes
+assert.calledWith(spy, &quot;Hey&quot;);      // Passes
+assert.calledWith(spy, &quot;Hey&quot;, 12);  // Fails
+assert.calledWith(spy, &quot;Hey&quot;, arr); // Passes
+</code></pre>
+
+<h4 id="messages_8">Messages</h4>
+<pre><code class="js">assert.calledWith.message = &quot;Expected ${0} to be called with arguments ${1}${2}&quot;;
+refute.calledWith.message = &quot;Expected ${0} not to be called with arguments ${1}${2}&quot;;
+</code></pre>
+
+<dl>
+    <dt>`${0}`:</dt>
+    <dd>The spy</dd>
+    <dt>`${1}`:</dt>
+    <dd>The expected arguments</dd>
+    <dt>`${2}`:</dt>
+    <dd>String representation of all calls</dd>
+</dl>
+
+<h3 id="calledwithnew"><code>calledWithNew()</code></h3>
+<pre><code class="js">assert.calledWithNew(spy)
+</code></pre>
+
+<p>Fails if the <code>spy</code> has never called with <code>new</code>.</p>
+<pre><code class="js">var spy = this.spy();
+
+assert.calledWithNew(spy); // Fails
+
+new spy();
+assert.calledWithNew(spy); // Passes
+
+spy();
+assert.calledWithNew(spy); // Passes
+</code></pre>
+
+<h4 id="messages_9">Messages</h4>
+<pre><code class="js">assert.calledWithNew.message = &quot;Expected ${spyObj} to be called with 'new' at least once but was never called with 'new'&quot;;
+refute.calledWithNew.message = &quot;Expected ${spyObj} to not be called with 'new'&quot;;
+</code></pre>
+
+<dl>
+    <dt>`${spyObj}`:</dt>
+    <dd>The spy</dd>
+</dl>
+
+<h3 id="alwayscalledwith"><code>alwaysCalledWith()</code></h3>
+<pre><code class="js">assert.alwaysCalledWith(spy, arg1, arg2, ...)
+</code></pre>
+
+<p>Passes if the <code>spy</code> was always called with the specified arguments. Other arguments may have been passed after the specified ones.</p>
+<pre><code class="js">var spy = this.spy();
+var arr = [1, 2, 3];
+spy(&quot;Hey&quot;, arr, 12);
+spy(&quot;Hey&quot;, arr, 13);
+
+assert.alwaysCalledWith(spy, &quot;Hey&quot;);          // Passes
+assert.alwaysCalledWith(spy, &quot;Hey&quot;, arr);     // Passes
+assert.alwaysCalledWith(spy, &quot;Hey&quot;, arr, 12); // Fails
+</code></pre>
+
+<h4 id="messages_10">Messages</h4>
+<pre><code class="js">assert.alwaysCalledWith.message = &quot;Expected ${0} to always be called with arguments ${1}${2}&quot;;
+refute.alwaysCalledWith.message = &quot;Expected ${0} not to always be called with arguments${1}${2}&quot;;
+</code></pre>
+
+<dl>
+    <dt>`${0}`:</dt>
+    <dd>The spy</dd>
+    <dt>`${1}`:</dt>
+    <dd>The expected arguments</dd>
+    <dt>`${2}`:</dt>
+    <dd>String representation of all calls</dd>
+</dl>
+
+<h3 id="alwayscalledwithnew"><code>alwaysCalledWithNew()</code></h3>
+<pre><code class="js">assert.alwaysCalledWithNew(spy)
+</code></pre>
+
+<p>Passes when the <code>spy</code> has was always called with <code>new</code></p>
+<pre><code class="js">var spy = this.spy();
+
+assert.alwaysCalledWithNew(spy); // Fails
+
+new spy();
+assert.alwaysCalledWithNew(spy); // Passes
+
+spy();
+assert.alwaysCalledWithNew(spy); // Fails
+</code></pre>
+
+<h4 id="messages_11">Messages</h4>
+<pre><code class="js">assert.calledWithNew.message = &quot;Expected ${spyObj} to always be called with 'new'&quot;;
+refute.calledWithNew.message = &quot;Expected ${spyObj} to not always be called with 'new'&quot;;
+</code></pre>
+
+<dl>
+    <dt>`${spyObj}`:</dt>
+    <dd>The spy</dd>
+</dl>
+
+<h3 id="calledoncewith"><code>calledOnceWith()</code></h3>
+<pre><code class="js">assert.calledOnceWith(spy, arg1, arg2, ...)
+</code></pre>
+
+<p>Passes if the <code>spy</code> was called exactly once and with the specified arguments. Other arguments may have been passed after the specified ones.</p>
+<pre><code class="js">var spy = this.spy();
+var arr = [1, 2, 3];
+spy(12);
+
+assert.calledOnceWith(spy, 12);     // Passes
+assert.calledOnceWith(spy, 42);     // Fails
+
+spy(42, 13);
+assert.calledOnceWith(spy, 42, 13); // Fails
+</code></pre>
+
+<h4 id="messages_12">Messages</h4>
+<pre><code class="js">assert.calledOnceWith.message = &quot;Expected ${0} to be called once with arguments ${1}${2}&quot;;
+refute.calledOnceWith.message = &quot;Expected ${0} not to be called once with arguments ${1}${2}&quot;;
+</code></pre>
+
+<dl>
+    <dt>`${0}`:</dt>
+    <dd>The spy</dd>
+    <dt>`${1}`:</dt>
+    <dd>The expected arguments</dd>
+    <dt>`${2}`:</dt>
+    <dd>String representation of all calls</dd>
+</dl>
+
+<h3 id="calledwithexactly"><code>calledWithExactly()</code></h3>
+<pre><code class="js">assert.calledWithExactly(spy, arg1, arg2, ...)
+</code></pre>
+
+<p>Passes if the <code>spy</code> was called at least once with exactly the arguments specified.</p>
+<pre><code class="js">var spy = this.spy();
+var arr = [1, 2, 3];
+spy(&quot;Hey&quot;, arr, 12);
+spy(&quot;Hey&quot;, arr, 13);
+
+assert.calledWithExactly(spy, &quot;Hey&quot;, arr, 12); // Passes
+assert.calledWithExactly(spy, &quot;Hey&quot;, arr, 13); // Passes
+assert.calledWithExactly(spy, &quot;Hey&quot;, arr);     // Fails
+assert.calledWithExactly(spy, &quot;Hey&quot;);          // Fails
+</code></pre>
+
+<h4 id="messages_13">Messages</h4>
+<pre><code class="js">assert.calledWithExactly.message = &quot;Expected ${0} to be called with exact arguments ${1}${2}&quot;;
+refute.calledWithExactly.message = &quot;Expected ${0} not to be called with exact arguments${1}${2}&quot;;
+</code></pre>
+
+<dl>
+    <dt>`${0}`:</dt>
+    <dd>The spy</dd>
+    <dt>`${1}`:</dt>
+    <dd>The expected arguments</dd>
+    <dt>`${2}`:</dt>
+    <dd>String representation of all calls</dd>
+</dl>
+
+<h3 id="alwayscalledwithexactly"><code>alwaysCalledWithExactly()</code></h3>
+<pre><code class="js">assert.alwaysCalledWithExactly(spy, arg1, arg2, ...)
+</code></pre>
+
+<p>Passes if the <code>spy</code> was always called with exactly the arguments specified.</p>
+<pre><code class="js">var spy = this.spy();
+var arr = [1, 2, 3];
+spy(&quot;Hey&quot;, arr, 12);
+
+assert.alwaysCalledWithExactly(spy, &quot;Hey&quot;, arr, 12); // Passes
+assert.alwaysCalledWithExactly(spy, &quot;Hey&quot;, arr);     // Fails
+assert.alwaysCalledWithExactly(spy, &quot;Hey&quot;);          // Fails
+
+spy(&quot;Hey&quot;, arr, 13);
+assert.alwaysCalledWithExactly(spy, &quot;Hey&quot;, arr, 12); // Fails
+</code></pre>
+
+<h4 id="messages_14">Messages</h4>
+<pre><code class="js">assert.alwaysCalledWithExactly.message = &quot;Expected ${0} to always be called with exact arguments ${1}${2}&quot;;
+refute.alwaysCalledWithExactly.message = &quot;Expected ${0} not to always be called with exact arguments${1}${2}&quot;;
+</code></pre>
+
+<dl>
+    <dt>`${0}`:</dt>
+    <dd>The spy</dd>
+    <dt>`${1}`:</dt>
+    <dd>The expected arguments</dd>
+    <dt>`${2}`:</dt>
+    <dd>String representation of all calls</dd>
+</dl>
+
+<h3 id="threw"><code>threw()</code></h3>
+<pre><code class="js">assert.threw(spy[, exception])
+</code></pre>
+
+<p>Passes if the <code>spy</code> threw at least once the specified <code>exception</code>. The <code>exception</code> can be a string denoting its type, or an actual object. If <code>exception</code> is not specified, the assertion passes if the <code>spy</code> ever threw any exception.</p>
+<pre><code class="js">var exception1 = new TypeError();
+var exception2 = new TypeError();
+var exception3 = new TypeError();
+var spy = this.spy(function(exception) {
+    throw exception;
+});
+
+function callAndCatchException(spy, exception) {
+    try {
+        spy(exception);
+    } catch(e) {
+    }
+}
+
+callAndCatchException(spy, exception1);
+callAndCatchException(spy, exception2);
+
+assert.threw(spy); // Passes
+assert.threw(spy, “TypeError”); // Passes
+assert.threw(spy, exception1); // Passes
+assert.threw(spy, exception2); // Passes
+assert.threw(spy, exception3); // Fails
+
+callAndCatchException(spy, exception3); assert.threw(spy, exception3); // Passes
+</code></pre>
+
+<h4 id="messages_15">Messages</h4>
+<pre><code class="js">assert.threw.message = &quot;Expected ${0} to throw an exception${1}&quot;;
+refute.threw.message = &quot;Expected ${0} not to throw an exception${1}&quot;;
+</code></pre>
+
+<dl>
+    <dt>`${0}`:</dt>
+    <dd>The spy</dd>
+    <dt>`${1}`:</dt>
+    <dd>The expected exception</dd>
+</dl>
+
+<h3 id="alwaysthrew"><code>alwaysThrew()</code></h3>
+<pre><code class="js">assert.alwaysThrew(spy[, exception])
+</code></pre>
+
+<p>Passes if the <code>spy</code> always threw the specified <code>exception</code>. The <code>exception</code> can be a string denoting its type, or an actual object. If <code>exception</code> is not specified, the assertion passes if the <code>spy</code> ever threw any exception.</p>
+<pre><code class="js">var exception1 = new TypeError();
+var exception2 = new TypeError();
+var spy = this.spy(function(exception) {
+    throw exception;
+});
+
+function callAndCatchException(spy, exception) {
+    try {
+        spy(exception);
+    } catch(e) {
+
+    }
+}
+
+callAndCatchException(spy, exception1);
+assert.alwaysThrew(spy); // Passes
+assert.alwaysThrew(spy, “TypeError”); // Passes
+assert.alwaysThrew(spy, exception1); // Passes
+
+callAndCatchException(spy, exception2);
+assert.alwaysThrew(spy); // Passes
+assert.alwaysThrew(spy, “TypeError”); // Passes
+assert.alwaysThrew(spy, exception1); // Fails
+</code></pre>
+
+<h4 id="messages_16">Messages</h4>
+<pre><code class="js">assert.alwaysThrew.message = &quot;Expected ${0} to always throw an exception${1}&quot;;
+refute.alwaysThrew.message = &quot;Expected ${0} not to always throw an exception${1}&quot;;
+</code></pre>
+
+<dl>
+    <dt>`${0}`:</dt>
+    <dd>The spy</dd>
+    <dt>`${1}`:</dt>
+    <dd>The expected exception</dd>
+</dl>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/sinonjs/referee-sinon/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="./js/theme.js"></script>
+      <script src="./search/require.js"></script>
+      <script src="./search/search.js"></script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 0.17.2
+Build Date UTC : 2018-03-03 10:26:19
+-->
