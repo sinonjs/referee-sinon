@@ -3,22 +3,35 @@
 [![Build status](https://secure.travis-ci.org/sinonjs/referee-sinon.png?branch=master)](http://travis-ci.org/sinonjs/referee-sinon)
 [![Coverage Status](https://coveralls.io/repos/github/sinonjs/referee-sinon/badge.svg?branch=master)](https://coveralls.io/github/sinonjs/referee-sinon?branch=master)
 
-Sinon.JS assertions for the referee assertion library.
+Sinon.JS and the referee assertion library in one package.
 
 
 ## Usage
+
+Install:
 
 ```shell
 npm install @sinonjs/referee-sinon --save-dev
 ```
 
-```js
-const referee = require("@sinonjs/referee");
-const sinon = require("sinon");
+Note that you don't need to install `@sinonjs/referee` or `sinon`.
 
-// add the assertions to referee
-require("@sinonjs/referee-sinon")(referee, sinon);
+```js
+const referee = require("@sinonjs/referee-sinon");
+
+const assert = referee.assert
+const refute = referee.refute
+const sinon = referee.sinon
 ```
+
+Or, [if you can make use][compat] of [destructuring assignments][mdn]:
+
+```js
+const { assert, refute, sinon } = require("@sinonjs/referee-sinon");
+```
+
+[compat]: http://kangax.github.io/compat-table/es6/#test-destructuring
+[mdn]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
 
 
 ## Prebuilt global/AMD version

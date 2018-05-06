@@ -1,6 +1,6 @@
 # referee-sinon
 
-Sinon.JS assertions for the referee assertion library.
+Sinon.JS and the referee assertion library in one package.
 
 
 ## Usage
@@ -9,14 +9,28 @@ Sinon.JS assertions for the referee assertion library.
 npm install @sinonjs/referee-sinon --save-dev
 ```
 
-```js
-const referee = require("referee");
-const sinon = require("sinon");
+Note that you don't need to install `@sinonjs/referee` or `sinon`.
 
-// add the Sinon.JS assertions to referee
-require("@sinonjs/referee-sinon")(referee, sinon);
+```js
+const referee = require("@sinonjs/referee-sinon");
+
+const assert = referee.assert
+const refute = referee.refute
+const sinon = referee.sinon
 ```
 
+Or, [if you can make use][compat] of [destructuring assignments][mdn]:
+
+```js
+const { assert, refute, sinon } = require("@sinonjs/referee-sinon");
+```
+
+[compat]: http://kangax.github.io/compat-table/es6/#test-destructuring
+[mdn]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+
+## Sinon
+
+The exposed `sinon` object is the full Sinon.JS API as [documented on the Sinon.JS homepage](http://sinonjs.org).
 
 ## Assertions
 
