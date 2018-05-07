@@ -58,6 +58,8 @@
         
             <li><a class="toctree-l3" href="#usage">Usage</a></li>
         
+            <li><a class="toctree-l3" href="#sinon">Sinon</a></li>
+        
             <li><a class="toctree-l3" href="#assertions">Assertions</a></li>
         
         </ul>
@@ -102,18 +104,25 @@
             <div class="section">
               
                 <h1 id="referee-sinon">referee-sinon</h1>
-<p>Sinon.JS assertions for the referee assertion library.</p>
+<p>Sinon.JS and the referee assertion library in one package.</p>
 <h2 id="usage">Usage</h2>
 <pre><code class="shell">npm install @sinonjs/referee-sinon --save-dev
 </code></pre>
 
-<pre><code class="js">const referee = require(&quot;referee&quot;);
-const sinon = require(&quot;sinon&quot;);
+<p>Note that you don't need to install <code>@sinonjs/referee</code> or <code>sinon</code>.</p>
+<pre><code class="js">const referee = require(&quot;@sinonjs/referee-sinon&quot;);
 
-// add the Sinon.JS assertions to referee
-require(&quot;@sinonjs/referee-sinon&quot;)(referee, sinon);
+const assert = referee.assert
+const refute = referee.refute
+const sinon = referee.sinon
 </code></pre>
 
+<p>Or, <a href="http://kangax.github.io/compat-table/es6/#test-destructuring">if you can make use</a> of <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment">destructuring assignments</a>:</p>
+<pre><code class="js">const { assert, refute, sinon } = require(&quot;@sinonjs/referee-sinon&quot;);
+</code></pre>
+
+<h2 id="sinon">Sinon</h2>
+<p>The exposed <code>sinon</code> object is the full Sinon.JS API as <a href="http://sinonjs.org">documented on the Sinon.JS homepage</a>.</p>
 <h2 id="assertions">Assertions</h2>
 <p>The descriptions are for <code>assert</code>, but the corresponding failure messages for <code>refute</code> are also mentioned. For refute the behaviour is exactly opposite.</p>
 <p><em>Overview:</em></p>
@@ -727,5 +736,5 @@ refute.alwaysThrew.message = &quot;Expected ${0} not to always throw an exceptio
 
 <!--
 MkDocs version : 0.17.2
-Build Date UTC : 2018-03-03 19:01:55
+Build Date UTC : 2018-05-07 05:46:54
 -->
