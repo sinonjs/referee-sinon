@@ -6,7 +6,5 @@ module.exports = {
     entry: "lib/referee-sinon.js",
     format: "umd",
     moduleName: "refereeSinon",
-    plugins: [
-        commonjs({sourceMap: false})
-    ]
+    plugins: [commonjs({ sourceMap: false })]
 };
