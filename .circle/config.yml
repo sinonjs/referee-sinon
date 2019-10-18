@@ -107,9 +107,3 @@ workflows:
       - saucelabs:
           requires:
             - lint
-            - node-8
-            - node-10
-            - node-12
-          filters:
-            branches:
-              only: master
