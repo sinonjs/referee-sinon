@@ -95,15 +95,6 @@ workflows:
       - lint:
           requires:
             - install-dependencies
-      - node-8:
-          requires:
-            - install-dependencies
-      - node-10:
-          requires:
-            - install-dependencies
-      - node-12:
-          requires:
-            - install-dependencies
       - saucelabs:
           requires:
             - lint
