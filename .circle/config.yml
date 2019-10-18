@@ -112,4 +112,6 @@ workflows:
             - node-12
           filters:
             branches:
-              only: master
+              only:
+                - master
+                - run-sauce-labs-tests-in-master
