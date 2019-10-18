@@ -4,3 +4,4 @@ node_modules
 coverage/
 dist/
 site/
+.nyc_output/
