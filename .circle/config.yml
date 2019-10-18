@@ -106,6 +106,7 @@ workflows:
             - install-dependencies
       - saucelabs:
           requires:
+            - install-dependencies
             - lint
             - node-8
             - node-10
