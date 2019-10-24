@@ -1,7 +1,7 @@
 # referee-sinon
 
-[![Build status](https://secure.travis-ci.org/sinonjs/referee-sinon.png?branch=master)](http://travis-ci.org/sinonjs/referee-sinon)
-[![Coverage Status](https://coveralls.io/repos/github/sinonjs/referee-sinon/badge.svg?branch=master)](https://coveralls.io/github/sinonjs/referee-sinon?branch=master)
+[![CircleCI](https://circleci.com/gh/sinonjs/referee-sinon.svg?style=svg)](https://circleci.com/gh/sinonjs/referee-sinon)
+[![codecov](https://codecov.io/gh/sinonjs/referee-sinon/branch/master/graph/badge.svg)](https://codecov.io/gh/sinonjs/referee-sinon)
 
 Sinon.JS and the referee assertion library in one package.
 
