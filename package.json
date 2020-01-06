@@ -1,6 +1,6 @@
 {
   "name": "@sinonjs/referee-sinon",
-  "version": "6.0.0",
+  "version": "6.0.1",
   "description": "Sinon.JS assertions for referee",
   "homepage": "https://github.com/sinonjs/referee-sinon",
   "author": "Christian Johansen",
