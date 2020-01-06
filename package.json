@@ -58,6 +58,6 @@
     "@sinonjs/commons": "^1.7.0",
     "@sinonjs/formatio": "^4.0.1",
     "@sinonjs/referee": "^4.0.0",
-    "sinon": "^8.0.1"
+    "sinon": "^8.0.3"
   }
 }
