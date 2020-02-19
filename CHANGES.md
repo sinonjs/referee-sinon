@@ -1,5 +1,19 @@
 # Changes
 
+## 7.0.0
+
+- [`89b3f8d`](https://github.com/sinonjs/referee-sinon/commit/89b3f8d01ee44244d7322b11d646851960302994)
+  Drop Node 8 support (Morgan Roderick)
+    >
+    > As can be seen at https://github.com/nodejs/Release, Node 8 reached
+    > "end" of life on 2019-12-31, and is no longer actively supported.
+    >
+    > We will stop testing in Node 8 and start testing in Node 13, which will
+    > become the next LTS release from April 2020.
+    >
+
+_Released on 2020-02-19._
+
 ## 6.0.1
 
 - [`fb8c3d3`](https://github.com/sinonjs/referee-sinon/commit/fb8c3d3355a5d31434b01f291c373154330a0502)
