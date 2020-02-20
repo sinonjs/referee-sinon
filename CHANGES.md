@@ -1,5 +1,14 @@
 # Changes
 
+## 7.0.1
+
+- [`78d7894`](https://github.com/sinonjs/referee-sinon/commit/78d7894556d0723b02e84d7cb44acccc834146d0)
+  Bump @sinonjs/formatio (Morgan Roderick)
+- [`1afe7d4`](https://github.com/sinonjs/referee-sinon/commit/1afe7d49879668b3903b183a3b9271aacb12db8b)
+  Bump Sinon to latest (Morgan Roderick)
+
+_Released on 2020-02-20._
+
 ## 7.0.0
 
 - [`89b3f8d`](https://github.com/sinonjs/referee-sinon/commit/89b3f8d01ee44244d7322b11d646851960302994)
