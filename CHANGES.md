@@ -1,5 +1,17 @@
 # Changes
 
+## 7.0.2
+
+- [`54f4e5d`](https://github.com/sinonjs/referee-sinon/commit/54f4e5d7cd208a0a566bd5697c678cb44a48633f)
+  Fix sinon assertions with matchers (#83) (Maximilian Antoni)
+    >
+    > * Add failing test for issue with 2 samsam versions
+    > * Upgrade referee to v5
+    > * Reinstall dependencies
+    >
+
+_Released by [Maximilian Antoni](https://github.com/mantoni) on 2020-02-28._
+
 ## 7.0.1
 
 - [`78d7894`](https://github.com/sinonjs/referee-sinon/commit/78d7894556d0723b02e84d7cb44acccc834146d0)
