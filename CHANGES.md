@@ -1,5 +1,20 @@
 # Changes
 
+## 7.1.0
+
+- [`91ef947`](https://github.com/sinonjs/referee-sinon/commit/91ef947a8b9508c7dcd755c5a89763b580a99e61)
+  Fix issues with undefined fakes (Maximilian Antoni)
+    >
+    > The tests where covering these cases, but the wrong regexp handling in
+    > referee exception assertion used to let the tests pass anyway.
+    >
+    > See https://github.com/sinonjs/referee/pull/146
+    >
+- [`f5d9496`](https://github.com/sinonjs/referee-sinon/commit/f5d9496c4646426d00e38087cc48e6464c53bdee)
+  Upgrade referee to v6 (Maximilian Antoni)
+
+_Released by [Maximilian Antoni](https://github.com/mantoni) on 2020-06-17._
+
 ## 7.0.2
 
 - [`54f4e5d`](https://github.com/sinonjs/referee-sinon/commit/54f4e5d7cd208a0a566bd5697c678cb44a48633f)
