@@ -1,5 +1,15 @@
 # Changes
 
+## 7.2.0
+
+- [`160b5bf`](https://github.com/sinonjs/referee-sinon/commit/160b5bfce23bb8a4100c9e2af084fb1a16a72930)
+  Sinon 9.1 (#96) (Maximilian Antoni)
+    >
+    > Add `calledOnceWithMatch` assertion
+    >
+
+_Released by [Maximilian Antoni](https://github.com/mantoni) on 2020-10-01._
+
 ## 7.1.0
 
 - [`91ef947`](https://github.com/sinonjs/referee-sinon/commit/91ef947a8b9508c7dcd755c5a89763b580a99e61)
