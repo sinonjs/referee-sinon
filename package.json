@@ -57,7 +57,7 @@
   "dependencies": {
     "@sinonjs/commons": "^1.8.1",
     "@sinonjs/formatio": "^5.0.1",
-    "@sinonjs/referee": "^6.0.1",
+    "@sinonjs/referee": "^6.1.0",
     "sinon": "^9.1.0"
   }
 }
