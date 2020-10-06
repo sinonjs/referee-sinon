@@ -1,5 +1,12 @@
 # Changes
 
+## 7.3.0
+
+- [`8b0efed`](https://github.com/sinonjs/referee-sinon/commit/8b0efed86f13ec01a683cc1ed12bda0a18ea776d)
+  Replace formatio with util inspect (#98) (Maximilian Antoni)
+
+_Released by [Maximilian Antoni](https://github.com/mantoni) on 2020-10-06._
+
 ## 7.2.0
 
 - [`160b5bf`](https://github.com/sinonjs/referee-sinon/commit/160b5bfce23bb8a4100c9e2af084fb1a16a72930)
