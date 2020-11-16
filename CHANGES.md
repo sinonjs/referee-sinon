@@ -1,5 +1,23 @@
 # Changes
 
+## 8.0.0
+
+- [`eba2d3e`](https://github.com/sinonjs/referee-sinon/commit/eba2d3eb6be093ee84e165d1a38761659cb87fe5)
+  Upgrade prettier to 2.x (Morgan Roderick)
+    >
+    > * upgrade `eslint-config-prettier`
+    > * upgrade `eslint-plugin-prettier`
+    > * run `prettier` on all JavaScript files
+    >     ```sh
+    >     $(npm bin)/prettier -w -u .
+    >     ```
+    >
+
+  The `MAJOR` version bump is because the prettier defaults are incompatible
+  with IE11 and Edge Legacy. Those two browsers are no longer supported.
+
+_Released on 2020-11-16._
+
 ## 7.3.0
 
 - [`8b0efed`](https://github.com/sinonjs/referee-sinon/commit/8b0efed86f13ec01a683cc1ed12bda0a18ea776d)
