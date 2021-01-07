@@ -1,5 +1,15 @@
 # Changes
 
+## 8.0.1
+
+- [`667058b`](https://github.com/sinonjs/referee-sinon/commit/667058b1b1ed4a6ae3bc0bb0a046f8b0e5550331)
+  Add util package (Morgan Roderick)
+    >
+    > This improves browser support, as it is node internals
+    >
+
+_Released on 2021-01-07._
+
 ## 8.0.0
 
 - [`eba2d3e`](https://github.com/sinonjs/referee-sinon/commit/eba2d3eb6be093ee84e165d1a38761659cb87fe5)
