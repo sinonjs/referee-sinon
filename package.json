@@ -11,7 +11,7 @@
     "url": "https://github.com/sinonjs/referee-sinon"
   },
   "scripts": {
-    "build": "run-s build:dist-folder build:bundle",
+    "build": "npm run build:dist-folder && npm run build:bundle",
     "build:bundle": "esbuild lib/referee-sinon.js --bundle --outfile=dist/referee-sinon.js",
     "build:dist-folder": "mkdirp dist",
     "lint": "eslint .",
@@ -50,7 +50,6 @@
     "mkdirp": "^1.0.3",
     "mocha": "^7.0.1",
     "mochify": "^6.6.0",
-    "npm-run-all": "^4.1.2",
     "nyc": "^15.0.0",
     "prettier": "^2.1.2",
     "rollup-plugin-commonjs": "^10.1.0"
