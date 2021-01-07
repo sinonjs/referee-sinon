@@ -3,8 +3,13 @@
 var commonjs = require("rollup-plugin-commonjs");
 
 module.exports = {
-  entry: "lib/referee-sinon.js",
-  format: "umd",
-  moduleName: "refereeSinon",
-  plugins: [commonjs({ sourceMap: false })],
+  input: "lib/referee-sinon.js",
+  output: {
+    inlineDynamicImports: true,
+    file: "dist/referee-sinon.js",
+    exports: "named",
+    format: "umd",
+    name: "refereeSinon"
+  },
+  plugins: [commonjs({ sourceMap: false })]
 };
