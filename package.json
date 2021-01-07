@@ -12,7 +12,7 @@
   },
   "scripts": {
     "build": "run-s build:dist-folder build:bundle",
-    "build:bundle": "rollup -c > dist/referee-sinon.js",
+    "build:bundle": "esbuild lib/referee-sinon.js --bundle --outfile=dist/referee-sinon.js",
     "build:dist-folder": "mkdirp dist",
     "lint": "eslint .",
     "precommit": "lint-staged",
@@ -37,6 +37,7 @@
   ],
   "devDependencies": {
     "@studio/changes": "^2.0.0",
+    "esbuild": "^0.8.31",
     "eslint": "^6.5.1",
     "eslint-config-prettier": "^6.15.0",
     "eslint-config-sinon": "^4.0.0",
