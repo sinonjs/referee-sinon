@@ -2,7 +2,6 @@
 
 Sinon.JS and the referee assertion library in one package.
 
-
 ## Usage
 
 ```shell
@@ -14,9 +13,9 @@ Note that you don't need to install `@sinonjs/referee` or `sinon`.
 ```js
 const referee = require("@sinonjs/referee-sinon");
 
-const assert = referee.assert
-const refute = referee.refute
-const sinon = referee.sinon
+const assert = referee.assert;
+const refute = referee.refute;
+const sinon = referee.sinon;
 ```
 
 Or, [if you can make use][compat] of [destructuring assignments][mdn]:
@@ -36,30 +35,30 @@ The exposed `sinon` object is the full Sinon.JS API as [documented on the Sinon.
 
 The descriptions are for `assert`, but the corresponding failure messages for `refute` are also mentioned. For refute the behaviour is exactly opposite.
 
-*Overview:*
+_Overview:_
 
-* [`called()`](#called)
-* [`callCount()`](#callcount)
-* [`callOrder()`](#callorder)
-* [`calledOnce()`](#calledonce)
-* [`calledTwice()`](#calledtwice)
-* [`calledThrice()`](#calledthrice)
-* [`calledOn()`](#calledon)
-* [`alwaysCalledOn()`](#alwayscalledon)
-* [`calledWith()`](#calledwith)
-* [`calledWithNew()`](#calledwithnew)
-* [`alwaysCalledWith()`](alwayscalledwith)
-* [`alwaysCalledWithNew()`](alwayscalledwithnew)
-* [`calledOnceWith()`](#calledoncewith)
-* [`calledWithExactly()`](#calledwithexactly)
-* [`alwaysCalledWithExactly()`](#alwayscalledwithexactly)
-* [`threw()`](#threw)
-* [`alwaysThrew()`](#alwaysthrew)
+- [`called()`](#called)
+- [`callCount()`](#callcount)
+- [`callOrder()`](#callorder)
+- [`calledOnce()`](#calledonce)
+- [`calledTwice()`](#calledtwice)
+- [`calledThrice()`](#calledthrice)
+- [`calledOn()`](#calledon)
+- [`alwaysCalledOn()`](#alwayscalledon)
+- [`calledWith()`](#calledwith)
+- [`calledWithNew()`](#calledwithnew)
+- [`alwaysCalledWith()`](alwayscalledwith)
+- [`alwaysCalledWithNew()`](alwayscalledwithnew)
+- [`calledOnceWith()`](#calledoncewith)
+- [`calledWithExactly()`](#calledwithexactly)
+- [`alwaysCalledWithExactly()`](#alwayscalledwithexactly)
+- [`threw()`](#threw)
+- [`alwaysThrew()`](#alwaysthrew)
 
 ### `called()`
 
 ```js
-assert.called(spy)
+assert.called(spy);
 ```
 
 Fails if the `spy` has never been called.
@@ -79,7 +78,8 @@ assert.called(spy); // Passes
 #### Messages
 
 ```js
-assert.called.message = "Expected ${0} to be called at least once but was never called";
+assert.called.message =
+  "Expected ${0} to be called at least once but was never called";
 ```
 
 <dl>
@@ -88,9 +88,9 @@ assert.called.message = "Expected ${0} to be called at least once but was never 
 </dl>
 
 ```js
-refute.called.message = "Expected ${0} to not be called but was called ${1}${2}";
+refute.called.message =
+  "Expected ${0} to not be called but was called ${1}${2}";
 ```
-
 
 <dl>
     <dt>`${0}`:</dt>
@@ -104,7 +104,7 @@ refute.called.message = "Expected ${0} to not be called but was called ${1}${2}"
 ### `callCount()`
 
 ```js
-assert.callCount(spy, count)
+assert.callCount(spy, count);
 ```
 
 Fails if the `spy`'s `callCount` property is not exactly `count`
@@ -123,8 +123,10 @@ assert.callCount(spy, 1); // Passes
 #### Messages
 
 ```js
-assert.called.message = "Expected ${spyObj} to be called exactly ${expectedTimes} times, but was called ${actualTimes}";
-refute.called.message = "Expected ${spyObj} to not be called exactly ${expectedTimes} times"
+assert.called.message =
+  "Expected ${spyObj} to be called exactly ${expectedTimes} times, but was called ${actualTimes}";
+refute.called.message =
+  "Expected ${spyObj} to not be called exactly ${expectedTimes} times";
 ```
 
 <dl>
@@ -135,7 +137,6 @@ refute.called.message = "Expected ${spyObj} to not be called exactly ${expectedT
     <dt>`${actualTimes}`:</dt>
     <dd>The actual number of calls</dd>
 </dl>
-
 
 ### `callOrder()`
 
@@ -161,7 +162,8 @@ assert.callOrder(spy1, spy2, spy3); // Passes
 #### Messages
 
 ```js
-assert.callOrder.message = "Expected ${expected} to be called in order but were called as ${actual}";
+assert.callOrder.message =
+  "Expected ${expected} to be called in order but were called as ${actual}";
 refute.callOrder.message = "Expected ${expected} not to be called in order";
 ```
 
@@ -172,11 +174,10 @@ refute.callOrder.message = "Expected ${expected} not to be called in order";
     <dd>A string representation of the actual call order</dd>
 </dl>
 
-
 ### `calledOnce()`
 
 ```js
-assert.calledOnce(spy)
+assert.calledOnce(spy);
 ```
 
 Fails if the `spy` has never been called or if it was called more than once.
@@ -212,7 +213,7 @@ refute.calledOnce.message = "Expected ${0} to not be called exactly once${2}";
 ### `calledTwice()`
 
 ```js
-assert.calledTwice(spy)
+assert.calledTwice(spy);
 ```
 
 Only passes if the `spy` was called exactly twice.
@@ -235,7 +236,8 @@ assert.calledTwice(spy); // Fails
 #### Messages
 
 ```js
-assert.calledTwice.message = "Expected ${0} to be called twice but was called ${1}${2}";
+assert.calledTwice.message =
+  "Expected ${0} to be called twice but was called ${1}${2}";
 refute.calledTwice.message = "Expected ${0} to not be called exactly twice${2}";
 ```
 
@@ -251,7 +253,7 @@ refute.calledTwice.message = "Expected ${0} to not be called exactly twice${2}";
 ### `calledThrice()`
 
 ```js
-assert.calledThrice(spy)
+assert.calledThrice(spy);
 ```
 
 Only passes if the `spy` has been called exactly three times.
@@ -277,8 +279,10 @@ assert.calledThrice(spy); // Fails
 #### Messages
 
 ```js
-assert.calledThrice.message = "Expected ${0} to be called thrice but was called ${1}${2}";
-refute.calledThrice.message = "Expected ${0} to not be called exactly thrice${2}";
+assert.calledThrice.message =
+  "Expected ${0} to be called thrice but was called ${1}${2}";
+refute.calledThrice.message =
+  "Expected ${0} to not be called exactly thrice${2}";
 ```
 
 <dl>
@@ -293,7 +297,7 @@ refute.calledThrice.message = "Expected ${0} to not be called exactly thrice${2}
 ### `calledOn()`
 
 ```js
-assert.calledOn(spy, obj)
+assert.calledOn(spy, obj);
 ```
 
 Passes if the `spy` was called at least once with `obj` as its `this` value.
@@ -315,7 +319,8 @@ assert.calledOn(spy, obj3); // Passes
 #### Messages
 
 ```js
-assert.calledOn.message = "Expected ${0} to be called with ${1} as this but was called on ${2}";
+assert.calledOn.message =
+  "Expected ${0} to be called with ${1} as this but was called on ${2}";
 refute.calledOn.message = "Expected ${0} not to be called with ${1} as this";
 ```
 
@@ -331,7 +336,7 @@ refute.calledOn.message = "Expected ${0} not to be called with ${1} as this";
 ### `alwaysCalledOn()`
 
 ```js
-assert.alwaysCalledOn(spy, obj)
+assert.alwaysCalledOn(spy, obj);
 ```
 
 Passes if the `spy` was always called with `obj` as its `this` value.
@@ -357,8 +362,10 @@ assert.alwaysCalledOn(spy2, obj2); // Passes
 #### Messages
 
 ```js
-assert.alwaysCalledOn.message = "Expected ${0} to always be called with ${1} as this but was called on ${2}";
-refute.alwaysCalledOn.message = "Expected ${0} not to always be called with ${1} as this";
+assert.alwaysCalledOn.message =
+  "Expected ${0} to always be called with ${1} as this but was called on ${2}";
+refute.alwaysCalledOn.message =
+  "Expected ${0} not to always be called with ${1} as this";
 ```
 
 <dl>
@@ -369,7 +376,6 @@ refute.alwaysCalledOn.message = "Expected ${0} not to always be called with ${1}
     <dt>`${2}`:</dt>
     <dd>List of objects which actually have been `this`</dd>
 </dl>
-
 
 ### `calledWith()`
 
@@ -386,17 +392,19 @@ spy(12);
 spy(42, 13);
 spy("Hey", arr, 2);
 
-assert.calledWith(spy, 12);         // Passes
-assert.calledWith(spy, "Hey");      // Passes
-assert.calledWith(spy, "Hey", 12);  // Fails
+assert.calledWith(spy, 12); // Passes
+assert.calledWith(spy, "Hey"); // Passes
+assert.calledWith(spy, "Hey", 12); // Fails
 assert.calledWith(spy, "Hey", arr); // Passes
 ```
 
 #### Messages
 
 ```js
-assert.calledWith.message = "Expected ${0} to be called with arguments ${1}${2}";
-refute.calledWith.message = "Expected ${0} not to be called with arguments ${1}${2}";
+assert.calledWith.message =
+  "Expected ${0} to be called with arguments ${1}${2}";
+refute.calledWith.message =
+  "Expected ${0} not to be called with arguments ${1}${2}";
 ```
 
 <dl>
@@ -411,7 +419,7 @@ refute.calledWith.message = "Expected ${0} not to be called with arguments ${1}$
 ### `calledWithNew()`
 
 ```js
-assert.calledWithNew(spy)
+assert.calledWithNew(spy);
 ```
 
 Fails if the `spy` has never called with `new`.
@@ -431,7 +439,8 @@ assert.calledWithNew(spy); // Passes
 #### Messages
 
 ```js
-assert.calledWithNew.message = "Expected ${spyObj} to be called with 'new' at least once but was never called with 'new'";
+assert.calledWithNew.message =
+  "Expected ${spyObj} to be called with 'new' at least once but was never called with 'new'";
 refute.calledWithNew.message = "Expected ${spyObj} to not be called with 'new'";
 ```
 
@@ -439,7 +448,6 @@ refute.calledWithNew.message = "Expected ${spyObj} to not be called with 'new'";
     <dt>`${spyObj}`:</dt>
     <dd>The spy</dd>
 </dl>
-
 
 ### `alwaysCalledWith()`
 
@@ -455,16 +463,18 @@ var arr = [1, 2, 3];
 spy("Hey", arr, 12);
 spy("Hey", arr, 13);
 
-assert.alwaysCalledWith(spy, "Hey");          // Passes
-assert.alwaysCalledWith(spy, "Hey", arr);     // Passes
+assert.alwaysCalledWith(spy, "Hey"); // Passes
+assert.alwaysCalledWith(spy, "Hey", arr); // Passes
 assert.alwaysCalledWith(spy, "Hey", arr, 12); // Fails
 ```
 
 #### Messages
 
 ```js
-assert.alwaysCalledWith.message = "Expected ${0} to always be called with arguments ${1}${2}";
-refute.alwaysCalledWith.message = "Expected ${0} not to always be called with arguments${1}${2}";
+assert.alwaysCalledWith.message =
+  "Expected ${0} to always be called with arguments ${1}${2}";
+refute.alwaysCalledWith.message =
+  "Expected ${0} not to always be called with arguments${1}${2}";
 ```
 
 <dl>
@@ -479,7 +489,7 @@ refute.alwaysCalledWith.message = "Expected ${0} not to always be called with ar
 ### `alwaysCalledWithNew()`
 
 ```js
-assert.alwaysCalledWithNew(spy)
+assert.alwaysCalledWithNew(spy);
 ```
 
 Passes when the `spy` has was always called with `new`
@@ -499,15 +509,16 @@ assert.alwaysCalledWithNew(spy); // Fails
 #### Messages
 
 ```js
-assert.calledWithNew.message = "Expected ${spyObj} to always be called with 'new'";
-refute.calledWithNew.message = "Expected ${spyObj} to not always be called with 'new'";
+assert.calledWithNew.message =
+  "Expected ${spyObj} to always be called with 'new'";
+refute.calledWithNew.message =
+  "Expected ${spyObj} to not always be called with 'new'";
 ```
 
 <dl>
     <dt>`${spyObj}`:</dt>
     <dd>The spy</dd>
 </dl>
-
 
 ### `calledOnceWith()`
 
@@ -522,8 +533,8 @@ var spy = this.spy();
 var arr = [1, 2, 3];
 spy(12);
 
-assert.calledOnceWith(spy, 12);     // Passes
-assert.calledOnceWith(spy, 42);     // Fails
+assert.calledOnceWith(spy, 12); // Passes
+assert.calledOnceWith(spy, 42); // Fails
 
 spy(42, 13);
 assert.calledOnceWith(spy, 42, 13); // Fails
@@ -532,8 +543,10 @@ assert.calledOnceWith(spy, 42, 13); // Fails
 #### Messages
 
 ```js
-assert.calledOnceWith.message = "Expected ${0} to be called once with arguments ${1}${2}";
-refute.calledOnceWith.message = "Expected ${0} not to be called once with arguments ${1}${2}";
+assert.calledOnceWith.message =
+  "Expected ${0} to be called once with arguments ${1}${2}";
+refute.calledOnceWith.message =
+  "Expected ${0} not to be called once with arguments ${1}${2}";
 ```
 
 <dl>
@@ -561,15 +574,17 @@ spy("Hey", arr, 13);
 
 assert.calledWithExactly(spy, "Hey", arr, 12); // Passes
 assert.calledWithExactly(spy, "Hey", arr, 13); // Passes
-assert.calledWithExactly(spy, "Hey", arr);     // Fails
-assert.calledWithExactly(spy, "Hey");          // Fails
+assert.calledWithExactly(spy, "Hey", arr); // Fails
+assert.calledWithExactly(spy, "Hey"); // Fails
 ```
 
 #### Messages
 
 ```js
-assert.calledWithExactly.message = "Expected ${0} to be called with exact arguments ${1}${2}";
-refute.calledWithExactly.message = "Expected ${0} not to be called with exact arguments${1}${2}";
+assert.calledWithExactly.message =
+  "Expected ${0} to be called with exact arguments ${1}${2}";
+refute.calledWithExactly.message =
+  "Expected ${0} not to be called with exact arguments${1}${2}";
 ```
 
 <dl>
@@ -595,8 +610,8 @@ var arr = [1, 2, 3];
 spy("Hey", arr, 12);
 
 assert.alwaysCalledWithExactly(spy, "Hey", arr, 12); // Passes
-assert.alwaysCalledWithExactly(spy, "Hey", arr);     // Fails
-assert.alwaysCalledWithExactly(spy, "Hey");          // Fails
+assert.alwaysCalledWithExactly(spy, "Hey", arr); // Fails
+assert.alwaysCalledWithExactly(spy, "Hey"); // Fails
 
 spy("Hey", arr, 13);
 assert.alwaysCalledWithExactly(spy, "Hey", arr, 12); // Fails
@@ -605,8 +620,10 @@ assert.alwaysCalledWithExactly(spy, "Hey", arr, 12); // Fails
 #### Messages
 
 ```js
-assert.alwaysCalledWithExactly.message = "Expected ${0} to always be called with exact arguments ${1}${2}";
-refute.alwaysCalledWithExactly.message = "Expected ${0} not to always be called with exact arguments${1}${2}";
+assert.alwaysCalledWithExactly.message =
+  "Expected ${0} to always be called with exact arguments ${1}${2}";
+refute.alwaysCalledWithExactly.message =
+  "Expected ${0} not to always be called with exact arguments${1}${2}";
 ```
 
 <dl>
@@ -617,7 +634,6 @@ refute.alwaysCalledWithExactly.message = "Expected ${0} not to always be called 
     <dt>`${2}`:</dt>
     <dd>String representation of all calls</dd>
 </dl>
-
 
 ### `threw()`
 
@@ -706,7 +722,8 @@ assert.alwaysThrew(spy, exception1); // Fails
 
 ```js
 assert.alwaysThrew.message = "Expected ${0} to always throw an exception${1}";
-refute.alwaysThrew.message = "Expected ${0} not to always throw an exception${1}";
+refute.alwaysThrew.message =
+  "Expected ${0} not to always throw an exception${1}";
 ```
 
 <dl>
