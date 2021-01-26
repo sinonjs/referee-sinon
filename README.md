@@ -6,7 +6,6 @@
 
 Sinon.JS and the referee assertion library in one package.
 
-
 ## Usage
 
 Install:
@@ -20,9 +19,9 @@ Note that you don't need to install `@sinonjs/referee` or `sinon`.
 ```js
 const referee = require("@sinonjs/referee-sinon");
 
-const assert = referee.assert
-const refute = referee.refute
-const sinon = referee.sinon
+const assert = referee.assert;
+const refute = referee.refute;
+const sinon = referee.sinon;
 ```
 
 Or, [if you can make use][compat] of [destructuring assignments][mdn]:
@@ -34,16 +33,13 @@ const { assert, refute, sinon } = require("@sinonjs/referee-sinon");
 [compat]: http://kangax.github.io/compat-table/es6/#test-destructuring
 [mdn]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
 
-
 ## Prebuilt global/AMD version
 
 When installing from `npm`, there is a pre-built global/AMD version in the `dist/` folder.
 
-
 ## Documentation
 
 https://sinonjs.github.io/referee-sinon/
-
 
 ## Backers
 
@@ -79,7 +75,6 @@ Support us with a monthly donation and help us continue our activities. [[Become
 <a href="https://opencollective.com/sinon/backer/27/website" target="_blank"><img src="https://opencollective.com/sinon/backer/27/avatar.svg"></a>
 <a href="https://opencollective.com/sinon/backer/28/website" target="_blank"><img src="https://opencollective.com/sinon/backer/28/avatar.svg"></a>
 <a href="https://opencollective.com/sinon/backer/29/website" target="_blank"><img src="https://opencollective.com/sinon/backer/29/avatar.svg"></a>
-
 
 ## Sponsors
 
