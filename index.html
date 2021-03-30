@@ -207,9 +207,9 @@
 <p>Note that you don't need to install <code>@sinonjs/referee</code> or <code>sinon</code>.</p>
 <pre><code class="js">const referee = require(&quot;@sinonjs/referee-sinon&quot;);
 
-const assert = referee.assert
-const refute = referee.refute
-const sinon = referee.sinon
+const assert = referee.assert;
+const refute = referee.refute;
+const sinon = referee.sinon;
 </code></pre>
 
 <p>Or, <a href="http://kangax.github.io/compat-table/es6/#test-destructuring">if you can make use</a> of <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment">destructuring assignments</a>:</p>
@@ -241,7 +241,7 @@ const sinon = referee.sinon
 <li><a href="#alwaysthrew"><code>alwaysThrew()</code></a></li>
 </ul>
 <h3 id="called"><code>called()</code></h3>
-<pre><code class="js">assert.called(spy)
+<pre><code class="js">assert.called(spy);
 </code></pre>
 
 <p>Fails if the <code>spy</code> has never been called.</p>
@@ -257,7 +257,8 @@ assert.called(spy); // Passes
 </code></pre>
 
 <h4 id="messages">Messages</h4>
-<pre><code class="js">assert.called.message = &quot;Expected ${0} to be called at least once but was never called&quot;;
+<pre><code class="js">assert.called.message =
+  &quot;Expected ${0} to be called at least once but was never called&quot;;
 </code></pre>
 
 <dl>
@@ -265,7 +266,8 @@ assert.called(spy); // Passes
     <dd>The spy</dd>
 </dl>
 
-<pre><code class="js">refute.called.message = &quot;Expected ${0} to not be called but was called ${1}${2}&quot;;
+<pre><code class="js">refute.called.message =
+  &quot;Expected ${0} to not be called but was called ${1}${2}&quot;;
 </code></pre>
 
 <dl>
@@ -278,7 +280,7 @@ assert.called(spy); // Passes
 </dl>
 
 <h3 id="callcount"><code>callCount()</code></h3>
-<pre><code class="js">assert.callCount(spy, count)
+<pre><code class="js">assert.callCount(spy, count);
 </code></pre>
 
 <p>Fails if the <code>spy</code>'s <code>callCount</code> property is not exactly <code>count</code></p>
@@ -293,8 +295,10 @@ assert.callCount(spy, 1); // Passes
 </code></pre>
 
 <h4 id="messages_1">Messages</h4>
-<pre><code class="js">assert.called.message = &quot;Expected ${spyObj} to be called exactly ${expectedTimes} times, but was called ${actualTimes}&quot;;
-refute.called.message = &quot;Expected ${spyObj} to not be called exactly ${expectedTimes} times&quot;
+<pre><code class="js">assert.called.message =
+  &quot;Expected ${spyObj} to be called exactly ${expectedTimes} times, but was called ${actualTimes}&quot;;
+refute.called.message =
+  &quot;Expected ${spyObj} to not be called exactly ${expectedTimes} times&quot;;
 </code></pre>
 
 <dl>
@@ -324,7 +328,8 @@ assert.callOrder(spy1, spy2, spy3); // Passes
 </code></pre>
 
 <h4 id="messages_2">Messages</h4>
-<pre><code class="js">assert.callOrder.message = &quot;Expected ${expected} to be called in order but were called as ${actual}&quot;;
+<pre><code class="js">assert.callOrder.message =
+  &quot;Expected ${expected} to be called in order but were called as ${actual}&quot;;
 refute.callOrder.message = &quot;Expected ${expected} not to be called in order&quot;;
 </code></pre>
 
@@ -336,7 +341,7 @@ refute.callOrder.message = &quot;Expected ${expected} not to be called in order&
 </dl>
 
 <h3 id="calledonce"><code>calledOnce()</code></h3>
-<pre><code class="js">assert.calledOnce(spy)
+<pre><code class="js">assert.calledOnce(spy);
 </code></pre>
 
 <p>Fails if the <code>spy</code> has never been called or if it was called more than once.</p>
@@ -366,7 +371,7 @@ refute.calledOnce.message = &quot;Expected ${0} to not be called exactly once${2
 </dl>
 
 <h3 id="calledtwice"><code>calledTwice()</code></h3>
-<pre><code class="js">assert.calledTwice(spy)
+<pre><code class="js">assert.calledTwice(spy);
 </code></pre>
 
 <p>Only passes if the <code>spy</code> was called exactly twice.</p>
@@ -385,7 +390,8 @@ assert.calledTwice(spy); // Fails
 </code></pre>
 
 <h4 id="messages_4">Messages</h4>
-<pre><code class="js">assert.calledTwice.message = &quot;Expected ${0} to be called twice but was called ${1}${2}&quot;;
+<pre><code class="js">assert.calledTwice.message =
+  &quot;Expected ${0} to be called twice but was called ${1}${2}&quot;;
 refute.calledTwice.message = &quot;Expected ${0} to not be called exactly twice${2}&quot;;
 </code></pre>
 
@@ -399,7 +405,7 @@ refute.calledTwice.message = &quot;Expected ${0} to not be called exactly twice$
 </dl>
 
 <h3 id="calledthrice"><code>calledThrice()</code></h3>
-<pre><code class="js">assert.calledThrice(spy)
+<pre><code class="js">assert.calledThrice(spy);
 </code></pre>
 
 <p>Only passes if the <code>spy</code> has been called exactly three times.</p>
@@ -421,8 +427,10 @@ assert.calledThrice(spy); // Fails
 </code></pre>
 
 <h4 id="messages_5">Messages</h4>
-<pre><code class="js">assert.calledThrice.message = &quot;Expected ${0} to be called thrice but was called ${1}${2}&quot;;
-refute.calledThrice.message = &quot;Expected ${0} to not be called exactly thrice${2}&quot;;
+<pre><code class="js">assert.calledThrice.message =
+  &quot;Expected ${0} to be called thrice but was called ${1}${2}&quot;;
+refute.calledThrice.message =
+  &quot;Expected ${0} to not be called exactly thrice${2}&quot;;
 </code></pre>
 
 <dl>
@@ -435,7 +443,7 @@ refute.calledThrice.message = &quot;Expected ${0} to not be called exactly thric
 </dl>
 
 <h3 id="calledon"><code>calledOn()</code></h3>
-<pre><code class="js">assert.calledOn(spy, obj)
+<pre><code class="js">assert.calledOn(spy, obj);
 </code></pre>
 
 <p>Passes if the <code>spy</code> was called at least once with <code>obj</code> as its <code>this</code> value.</p>
@@ -453,7 +461,8 @@ assert.calledOn(spy, obj3); // Passes
 </code></pre>
 
 <h4 id="messages_6">Messages</h4>
-<pre><code class="js">assert.calledOn.message = &quot;Expected ${0} to be called with ${1} as this but was called on ${2}&quot;;
+<pre><code class="js">assert.calledOn.message =
+  &quot;Expected ${0} to be called with ${1} as this but was called on ${2}&quot;;
 refute.calledOn.message = &quot;Expected ${0} not to be called with ${1} as this&quot;;
 </code></pre>
 
@@ -467,7 +476,7 @@ refute.calledOn.message = &quot;Expected ${0} not to be called with ${1} as this
 </dl>
 
 <h3 id="alwayscalledon"><code>alwaysCalledOn()</code></h3>
-<pre><code class="js">assert.alwaysCalledOn(spy, obj)
+<pre><code class="js">assert.alwaysCalledOn(spy, obj);
 </code></pre>
 
 <p>Passes if the <code>spy</code> was always called with <code>obj</code> as its <code>this</code> value.</p>
@@ -489,8 +498,10 @@ assert.alwaysCalledOn(spy2, obj2); // Passes
 </code></pre>
 
 <h4 id="messages_7">Messages</h4>
-<pre><code class="js">assert.alwaysCalledOn.message = &quot;Expected ${0} to always be called with ${1} as this but was called on ${2}&quot;;
-refute.alwaysCalledOn.message = &quot;Expected ${0} not to always be called with ${1} as this&quot;;
+<pre><code class="js">assert.alwaysCalledOn.message =
+  &quot;Expected ${0} to always be called with ${1} as this but was called on ${2}&quot;;
+refute.alwaysCalledOn.message =
+  &quot;Expected ${0} not to always be called with ${1} as this&quot;;
 </code></pre>
 
 <dl>
@@ -513,15 +524,17 @@ spy(12);
 spy(42, 13);
 spy(&quot;Hey&quot;, arr, 2);
 
-assert.calledWith(spy, 12);         // Passes
-assert.calledWith(spy, &quot;Hey&quot;);      // Passes
-assert.calledWith(spy, &quot;Hey&quot;, 12);  // Fails
+assert.calledWith(spy, 12); // Passes
+assert.calledWith(spy, &quot;Hey&quot;); // Passes
+assert.calledWith(spy, &quot;Hey&quot;, 12); // Fails
 assert.calledWith(spy, &quot;Hey&quot;, arr); // Passes
 </code></pre>
 
 <h4 id="messages_8">Messages</h4>
-<pre><code class="js">assert.calledWith.message = &quot;Expected ${0} to be called with arguments ${1}${2}&quot;;
-refute.calledWith.message = &quot;Expected ${0} not to be called with arguments ${1}${2}&quot;;
+<pre><code class="js">assert.calledWith.message =
+  &quot;Expected ${0} to be called with arguments ${1}${2}&quot;;
+refute.calledWith.message =
+  &quot;Expected ${0} not to be called with arguments ${1}${2}&quot;;
 </code></pre>
 
 <dl>
@@ -534,7 +547,7 @@ refute.calledWith.message = &quot;Expected ${0} not to be called with arguments 
 </dl>
 
 <h3 id="calledwithnew"><code>calledWithNew()</code></h3>
-<pre><code class="js">assert.calledWithNew(spy)
+<pre><code class="js">assert.calledWithNew(spy);
 </code></pre>
 
 <p>Fails if the <code>spy</code> has never called with <code>new</code>.</p>
@@ -550,7 +563,8 @@ assert.calledWithNew(spy); // Passes
 </code></pre>
 
 <h4 id="messages_9">Messages</h4>
-<pre><code class="js">assert.calledWithNew.message = &quot;Expected ${spyObj} to be called with 'new' at least once but was never called with 'new'&quot;;
+<pre><code class="js">assert.calledWithNew.message =
+  &quot;Expected ${spyObj} to be called with 'new' at least once but was never called with 'new'&quot;;
 refute.calledWithNew.message = &quot;Expected ${spyObj} to not be called with 'new'&quot;;
 </code></pre>
 
@@ -569,14 +583,16 @@ var arr = [1, 2, 3];
 spy(&quot;Hey&quot;, arr, 12);
 spy(&quot;Hey&quot;, arr, 13);
 
-assert.alwaysCalledWith(spy, &quot;Hey&quot;);          // Passes
-assert.alwaysCalledWith(spy, &quot;Hey&quot;, arr);     // Passes
+assert.alwaysCalledWith(spy, &quot;Hey&quot;); // Passes
+assert.alwaysCalledWith(spy, &quot;Hey&quot;, arr); // Passes
 assert.alwaysCalledWith(spy, &quot;Hey&quot;, arr, 12); // Fails
 </code></pre>
 
 <h4 id="messages_10">Messages</h4>
-<pre><code class="js">assert.alwaysCalledWith.message = &quot;Expected ${0} to always be called with arguments ${1}${2}&quot;;
-refute.alwaysCalledWith.message = &quot;Expected ${0} not to always be called with arguments${1}${2}&quot;;
+<pre><code class="js">assert.alwaysCalledWith.message =
+  &quot;Expected ${0} to always be called with arguments ${1}${2}&quot;;
+refute.alwaysCalledWith.message =
+  &quot;Expected ${0} not to always be called with arguments${1}${2}&quot;;
 </code></pre>
 
 <dl>
@@ -589,7 +605,7 @@ refute.alwaysCalledWith.message = &quot;Expected ${0} not to always be called wi
 </dl>
 
 <h3 id="alwayscalledwithnew"><code>alwaysCalledWithNew()</code></h3>
-<pre><code class="js">assert.alwaysCalledWithNew(spy)
+<pre><code class="js">assert.alwaysCalledWithNew(spy);
 </code></pre>
 
 <p>Passes when the <code>spy</code> has was always called with <code>new</code></p>
@@ -605,8 +621,10 @@ assert.alwaysCalledWithNew(spy); // Fails
 </code></pre>
 
 <h4 id="messages_11">Messages</h4>
-<pre><code class="js">assert.calledWithNew.message = &quot;Expected ${spyObj} to always be called with 'new'&quot;;
-refute.calledWithNew.message = &quot;Expected ${spyObj} to not always be called with 'new'&quot;;
+<pre><code class="js">assert.calledWithNew.message =
+  &quot;Expected ${spyObj} to always be called with 'new'&quot;;
+refute.calledWithNew.message =
+  &quot;Expected ${spyObj} to not always be called with 'new'&quot;;
 </code></pre>
 
 <dl>
@@ -623,16 +641,18 @@ refute.calledWithNew.message = &quot;Expected ${spyObj} to not always be called 
 var arr = [1, 2, 3];
 spy(12);
 
-assert.calledOnceWith(spy, 12);     // Passes
-assert.calledOnceWith(spy, 42);     // Fails
+assert.calledOnceWith(spy, 12); // Passes
+assert.calledOnceWith(spy, 42); // Fails
 
 spy(42, 13);
 assert.calledOnceWith(spy, 42, 13); // Fails
 </code></pre>
 
 <h4 id="messages_12">Messages</h4>
-<pre><code class="js">assert.calledOnceWith.message = &quot;Expected ${0} to be called once with arguments ${1}${2}&quot;;
-refute.calledOnceWith.message = &quot;Expected ${0} not to be called once with arguments ${1}${2}&quot;;
+<pre><code class="js">assert.calledOnceWith.message =
+  &quot;Expected ${0} to be called once with arguments ${1}${2}&quot;;
+refute.calledOnceWith.message =
+  &quot;Expected ${0} not to be called once with arguments ${1}${2}&quot;;
 </code></pre>
 
 <dl>
@@ -656,13 +676,15 @@ spy(&quot;Hey&quot;, arr, 13);
 
 assert.calledWithExactly(spy, &quot;Hey&quot;, arr, 12); // Passes
 assert.calledWithExactly(spy, &quot;Hey&quot;, arr, 13); // Passes
-assert.calledWithExactly(spy, &quot;Hey&quot;, arr);     // Fails
-assert.calledWithExactly(spy, &quot;Hey&quot;);          // Fails
+assert.calledWithExactly(spy, &quot;Hey&quot;, arr); // Fails
+assert.calledWithExactly(spy, &quot;Hey&quot;); // Fails
 </code></pre>
 
 <h4 id="messages_13">Messages</h4>
-<pre><code class="js">assert.calledWithExactly.message = &quot;Expected ${0} to be called with exact arguments ${1}${2}&quot;;
-refute.calledWithExactly.message = &quot;Expected ${0} not to be called with exact arguments${1}${2}&quot;;
+<pre><code class="js">assert.calledWithExactly.message =
+  &quot;Expected ${0} to be called with exact arguments ${1}${2}&quot;;
+refute.calledWithExactly.message =
+  &quot;Expected ${0} not to be called with exact arguments${1}${2}&quot;;
 </code></pre>
 
 <dl>
@@ -684,16 +706,18 @@ var arr = [1, 2, 3];
 spy(&quot;Hey&quot;, arr, 12);
 
 assert.alwaysCalledWithExactly(spy, &quot;Hey&quot;, arr, 12); // Passes
-assert.alwaysCalledWithExactly(spy, &quot;Hey&quot;, arr);     // Fails
-assert.alwaysCalledWithExactly(spy, &quot;Hey&quot;);          // Fails
+assert.alwaysCalledWithExactly(spy, &quot;Hey&quot;, arr); // Fails
+assert.alwaysCalledWithExactly(spy, &quot;Hey&quot;); // Fails
 
 spy(&quot;Hey&quot;, arr, 13);
 assert.alwaysCalledWithExactly(spy, &quot;Hey&quot;, arr, 12); // Fails
 </code></pre>
 
 <h4 id="messages_14">Messages</h4>
-<pre><code class="js">assert.alwaysCalledWithExactly.message = &quot;Expected ${0} to always be called with exact arguments ${1}${2}&quot;;
-refute.alwaysCalledWithExactly.message = &quot;Expected ${0} not to always be called with exact arguments${1}${2}&quot;;
+<pre><code class="js">assert.alwaysCalledWithExactly.message =
+  &quot;Expected ${0} to always be called with exact arguments ${1}${2}&quot;;
+refute.alwaysCalledWithExactly.message =
+  &quot;Expected ${0} not to always be called with exact arguments${1}${2}&quot;;
 </code></pre>
 
 <dl>
@@ -780,7 +804,8 @@ assert.alwaysThrew(spy, exception1); // Fails
 
 <h4 id="messages_16">Messages</h4>
 <pre><code class="js">assert.alwaysThrew.message = &quot;Expected ${0} to always throw an exception${1}&quot;;
-refute.alwaysThrew.message = &quot;Expected ${0} not to always throw an exception${1}&quot;;
+refute.alwaysThrew.message =
+  &quot;Expected ${0} not to always throw an exception${1}&quot;;
 </code></pre>
 
 <dl>
@@ -835,5 +860,5 @@ refute.alwaysThrew.message = &quot;Expected ${0} not to always throw an exceptio
 
 <!--
 MkDocs version : 1.1.2
-Build Date UTC : 2021-01-07 19:34:33.047524+00:00
+Build Date UTC : 2021-03-30 10:56:33.562553+00:00
 -->
