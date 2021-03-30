@@ -1,5 +1,15 @@
 # Changes
 
+## 9.0.0
+
+- [`47e03e1`](https://github.com/sinonjs/referee-sinon/commit/47e03e18df3d68de2c1ad5e42a97ec2c2070a141)
+  Use @sinonjs/eslint-config (Morgan Roderick)
+    >
+    > This drops support for legacy runtimes such as IE11, legacy Edge, Safari 9, etc. Minimum lagnuage support is now ES2017
+    >
+
+_Released on 2021-03-30._
+
 ## 8.0.1
 
 - [`667058b`](https://github.com/sinonjs/referee-sinon/commit/667058b1b1ed4a6ae3bc0bb0a046f8b0e5550331)
