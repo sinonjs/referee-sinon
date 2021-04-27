@@ -1,5 +1,12 @@
 # Changes
 
+## 9.0.2
+
+- [`37be940`](https://github.com/sinonjs/referee-sinon/commit/37be940cf2853d625746414d1e45bfc4c61f2f4a)
+  Upgrade @sinonjs/referee to latest (Morgan Roderick)
+
+_Released on 2021-04-27._
+
 ## 9.0.1
 
 - [`f8b50ea`](https://github.com/sinonjs/referee-sinon/commit/f8b50ea458398ccea6c95457a37f88db7c35c97c)
