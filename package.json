@@ -45,8 +45,8 @@
     "husky": "^4.2.1",
     "lint-staged": "^10.0.7",
     "mkdirp": "^1.0.3",
-    "mocha": "^7.0.1",
-    "mochify": "^6.6.0",
+    "mocha": "^8.4.0",
+    "mochify": "^8.0.0",
     "nyc": "^15.0.0",
     "prettier": "^2.1.2",
     "rollup-plugin-commonjs": "^10.1.0"
