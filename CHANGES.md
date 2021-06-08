@@ -1,5 +1,30 @@
 # Changes
 
+## 10.0.0
+
+- [`b3fff89`](https://github.com/sinonjs/referee-sinon/commit/b3fff89c7c2a7346b7ddc80d6fd735754bd3fc1b)
+  Upgrade @sinonjs/referee and sinon (Maximilian Antoni)
+- [`f10af07`](https://github.com/sinonjs/referee-sinon/commit/f10af078af46e7b7c28e7ec9e410135829662493)
+  Upgrade mocha and mochify (Maximilian Antoni)
+- [`5196049`](https://github.com/sinonjs/referee-sinon/commit/5196049108c4a3a7af6e7df3f48e432f4ed8914e)
+  Update @studio/changes (Maximilian Antoni)
+- [`4808b73`](https://github.com/sinonjs/referee-sinon/commit/4808b7346525c896de8bd18d70022b48b1d09a2c)
+  Update @sinonjs/eslint-config (Maximilian Antoni)
+- [`1aeea11`](https://github.com/sinonjs/referee-sinon/commit/1aeea11a94effbea8e2e1ba1b6bf2f4f9f28f067)
+  Update @sinonjs/commons (Maximilian Antoni)
+- [`63ccf75`](https://github.com/sinonjs/referee-sinon/commit/63ccf75040002dd15af0f2fa4f5202c96ea4b31a)
+  Use npm 7 (Maximilian Antoni)
+- [`ac52972`](https://github.com/sinonjs/referee-sinon/commit/ac529729122bf3018a73cf20f3f9ae1c58f81055)
+  Bump ws from 6.2.1 to 6.2.2 (dependabot[bot])
+- [`36fb290`](https://github.com/sinonjs/referee-sinon/commit/36fb29080d266fb36cea0b9f46b14d73739ddeb9)
+  Bump browserslist from 4.16.3 to 4.16.6 (dependabot[bot])
+- [`aff4513`](https://github.com/sinonjs/referee-sinon/commit/aff451328af1b0caf7694a9d30c6bc771d9b78f5)
+  Bump hosted-git-info from 3.0.5 to 3.0.8 (dependabot[bot])
+- [`0d59268`](https://github.com/sinonjs/referee-sinon/commit/0d592683d904741f052c8eeb0d8425597a3a2cc6)
+  Bump lodash from 4.17.20 to 4.17.21 (dependabot[bot])
+
+_Released by [Maximilian Antoni](https://github.com/mantoni) on 2021-06-08._
+
 ## 9.0.2
 
 - [`37be940`](https://github.com/sinonjs/referee-sinon/commit/37be940cf2853d625746414d1e45bfc4c61f2f4a)
