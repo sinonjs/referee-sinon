@@ -14,7 +14,7 @@
 
   <link rel="stylesheet" href="css/theme.css" />
   <link rel="stylesheet" href="css/theme_extra.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
   
   <script>
     // Current page data
@@ -25,9 +25,8 @@
   
   <script src="js/jquery-2.1.1.min.js" defer></script>
   <script src="js/modernizr-2.8.3.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
-  
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -38,17 +37,17 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-        <a href="." class="icon icon-home"> referee-sinon</a>
+        <a href="index.html" class="icon icon-home"> referee-sinon</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
                 <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href=".">referee-sinon</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="index.html">referee-sinon</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a>
     </li>
@@ -172,7 +171,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href=".">referee-sinon</a>
+        <a href="index.html">referee-sinon</a>
       </nav>
 
       
@@ -180,7 +179,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href=".">Docs</a> &raquo;</li>
+    <li><a href="index.html">Docs</a> &raquo;</li>
     
       
     
@@ -195,27 +194,25 @@
   
   <hr/>
 </div>
+
           <div role="main">
             <div class="section">
               
                 <h1 id="referee-sinon">referee-sinon</h1>
 <p>Sinon.JS and the referee assertion library in one package.</p>
 <h2 id="usage">Usage</h2>
-<pre><code class="shell">npm install @sinonjs/referee-sinon --save-dev
+<pre><code class="language-shell">npm install @sinonjs/referee-sinon --save-dev
 </code></pre>
-
 <p>Note that you don't need to install <code>@sinonjs/referee</code> or <code>sinon</code>.</p>
-<pre><code class="js">const referee = require(&quot;@sinonjs/referee-sinon&quot;);
+<pre><code class="language-js">const referee = require(&quot;@sinonjs/referee-sinon&quot;);
 
 const assert = referee.assert;
 const refute = referee.refute;
 const sinon = referee.sinon;
 </code></pre>
-
 <p>Or, <a href="http://kangax.github.io/compat-table/es6/#test-destructuring">if you can make use</a> of <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment">destructuring assignments</a>:</p>
-<pre><code class="js">const { assert, refute, sinon } = require(&quot;@sinonjs/referee-sinon&quot;);
+<pre><code class="language-js">const { assert, refute, sinon } = require(&quot;@sinonjs/referee-sinon&quot;);
 </code></pre>
-
 <h2 id="sinon">Sinon</h2>
 <p>The exposed <code>sinon</code> object is the full Sinon.JS API as <a href="http://sinonjs.org">documented on the Sinon.JS homepage</a>.</p>
 <h2 id="assertions">Assertions</h2>
@@ -241,11 +238,10 @@ const sinon = referee.sinon;
 <li><a href="#alwaysthrew"><code>alwaysThrew()</code></a></li>
 </ul>
 <h3 id="called"><code>called()</code></h3>
-<pre><code class="js">assert.called(spy);
+<pre><code class="language-js">assert.called(spy);
 </code></pre>
-
 <p>Fails if the <code>spy</code> has never been called.</p>
-<pre><code class="js">var spy = this.spy();
+<pre><code class="language-js">var spy = this.spy();
 
 assert.called(spy); // Fails
 
@@ -255,21 +251,18 @@ assert.called(spy); // Passes
 spy();
 assert.called(spy); // Passes
 </code></pre>
-
 <h4 id="messages">Messages</h4>
-<pre><code class="js">assert.called.message =
+<pre><code class="language-js">assert.called.message =
   &quot;Expected ${0} to be called at least once but was never called&quot;;
 </code></pre>
-
 <dl>
     <dt>`${0}`:</dt>
     <dd>The spy</dd>
 </dl>
 
-<pre><code class="js">refute.called.message =
+<pre><code class="language-js">refute.called.message =
   &quot;Expected ${0} to not be called but was called ${1}${2}&quot;;
 </code></pre>
-
 <dl>
     <dt>`${0}`:</dt>
     <dd>The spy</dd>
@@ -280,11 +273,10 @@ assert.called(spy); // Passes
 </dl>
 
 <h3 id="callcount"><code>callCount()</code></h3>
-<pre><code class="js">assert.callCount(spy, count);
+<pre><code class="language-js">assert.callCount(spy, count);
 </code></pre>
-
 <p>Fails if the <code>spy</code>'s <code>callCount</code> property is not exactly <code>count</code></p>
-<pre><code class="js">var spy = this.spy();
+<pre><code class="language-js">var spy = this.spy();
 
 assert.callCount(spy, 0); // Passes
 assert.callCount(spy, 1); // Fails
@@ -293,14 +285,12 @@ spy();
 assert.callCount(spy, 0); // Fails
 assert.callCount(spy, 1); // Passes
 </code></pre>
-
 <h4 id="messages_1">Messages</h4>
-<pre><code class="js">assert.called.message =
+<pre><code class="language-js">assert.called.message =
   &quot;Expected ${spyObj} to be called exactly ${expectedTimes} times, but was called ${actualTimes}&quot;;
 refute.called.message =
   &quot;Expected ${spyObj} to not be called exactly ${expectedTimes} times&quot;;
 </code></pre>
-
 <dl>
     <dt>`${spyObj}`:</dt>
     <dd>The spy</dd>
@@ -311,11 +301,10 @@ refute.called.message =
 </dl>
 
 <h3 id="callorder"><code>callOrder()</code></h3>
-<pre><code class="js">assert.callOrder(spy, spy2, ...)
+<pre><code class="language-js">assert.callOrder(spy, spy2, ...)
 </code></pre>
-
 <p>Fails if the spies were not called in the specified order.</p>
-<pre><code class="js">var spy1 = this.spy();
+<pre><code class="language-js">var spy1 = this.spy();
 var spy2 = this.spy();
 var spy3 = this.spy();
 
@@ -326,13 +315,11 @@ spy3();
 assert.callOrder(spy1, spy3, spy2); // Fails
 assert.callOrder(spy1, spy2, spy3); // Passes
 </code></pre>
-
 <h4 id="messages_2">Messages</h4>
-<pre><code class="js">assert.callOrder.message =
+<pre><code class="language-js">assert.callOrder.message =
   &quot;Expected ${expected} to be called in order but were called as ${actual}&quot;;
 refute.callOrder.message = &quot;Expected ${expected} not to be called in order&quot;;
 </code></pre>
-
 <dl>
     <dt>`${expected}`:</dt>
     <dd>A string representation of the expected call order</dd>
@@ -341,11 +328,10 @@ refute.callOrder.message = &quot;Expected ${expected} not to be called in order&
 </dl>
 
 <h3 id="calledonce"><code>calledOnce()</code></h3>
-<pre><code class="js">assert.calledOnce(spy);
+<pre><code class="language-js">assert.calledOnce(spy);
 </code></pre>
-
 <p>Fails if the <code>spy</code> has never been called or if it was called more than once.</p>
-<pre><code class="js">var spy = this.spy();
+<pre><code class="language-js">var spy = this.spy();
 
 assert.calledOnce(spy); // Fails
 
@@ -355,12 +341,10 @@ assert.calledOnce(spy); // Passes
 spy();
 assert.calledOnce(spy); // Fails
 </code></pre>
-
 <h4 id="messages_3">Messages</h4>
 <pre><code>assert.calledOnce.message = &quot;Expected ${0} to be called once but was called ${1}${2}&quot;;
 refute.calledOnce.message = &quot;Expected ${0} to not be called exactly once${2}&quot;;
 </code></pre>
-
 <dl>
     <dt>`${0}`:</dt>
     <dd>The spy</dd>
@@ -371,11 +355,10 @@ refute.calledOnce.message = &quot;Expected ${0} to not be called exactly once${2
 </dl>
 
 <h3 id="calledtwice"><code>calledTwice()</code></h3>
-<pre><code class="js">assert.calledTwice(spy);
+<pre><code class="language-js">assert.calledTwice(spy);
 </code></pre>
-
 <p>Only passes if the <code>spy</code> was called exactly twice.</p>
-<pre><code class="js">var spy = this.spy();
+<pre><code class="language-js">var spy = this.spy();
 
 assert.calledTwice(spy); // Fails
 
@@ -388,13 +371,11 @@ assert.calledTwice(spy); // Passes
 spy();
 assert.calledTwice(spy); // Fails
 </code></pre>
-
 <h4 id="messages_4">Messages</h4>
-<pre><code class="js">assert.calledTwice.message =
+<pre><code class="language-js">assert.calledTwice.message =
   &quot;Expected ${0} to be called twice but was called ${1}${2}&quot;;
 refute.calledTwice.message = &quot;Expected ${0} to not be called exactly twice${2}&quot;;
 </code></pre>
-
 <dl>
     <dt>`${0}`:</dt>
     <dd>The spy</dd>
@@ -405,11 +386,10 @@ refute.calledTwice.message = &quot;Expected ${0} to not be called exactly twice$
 </dl>
 
 <h3 id="calledthrice"><code>calledThrice()</code></h3>
-<pre><code class="js">assert.calledThrice(spy);
+<pre><code class="language-js">assert.calledThrice(spy);
 </code></pre>
-
 <p>Only passes if the <code>spy</code> has been called exactly three times.</p>
-<pre><code class="js">var spy = this.spy();
+<pre><code class="language-js">var spy = this.spy();
 
 assert.calledThrice(spy); // Fails
 
@@ -425,14 +405,12 @@ assert.calledThrice(spy); // Passes
 spy();
 assert.calledThrice(spy); // Fails
 </code></pre>
-
 <h4 id="messages_5">Messages</h4>
-<pre><code class="js">assert.calledThrice.message =
+<pre><code class="language-js">assert.calledThrice.message =
   &quot;Expected ${0} to be called thrice but was called ${1}${2}&quot;;
 refute.calledThrice.message =
   &quot;Expected ${0} to not be called exactly thrice${2}&quot;;
 </code></pre>
-
 <dl>
     <dt>`${0}`:</dt>
     <dd>The spy</dd>
@@ -443,11 +421,10 @@ refute.calledThrice.message =
 </dl>
 
 <h3 id="calledon"><code>calledOn()</code></h3>
-<pre><code class="js">assert.calledOn(spy, obj);
+<pre><code class="language-js">assert.calledOn(spy, obj);
 </code></pre>
-
 <p>Passes if the <code>spy</code> was called at least once with <code>obj</code> as its <code>this</code> value.</p>
-<pre><code class="js">var spy = this.spy();
+<pre><code class="language-js">var spy = this.spy();
 var obj1 = {};
 var obj2 = {};
 var obj3 = {};
@@ -459,13 +436,11 @@ assert.calledOn(spy, obj1); // Fails
 assert.calledOn(spy, obj2); // Passes
 assert.calledOn(spy, obj3); // Passes
 </code></pre>
-
 <h4 id="messages_6">Messages</h4>
-<pre><code class="js">assert.calledOn.message =
+<pre><code class="language-js">assert.calledOn.message =
   &quot;Expected ${0} to be called with ${1} as this but was called on ${2}&quot;;
 refute.calledOn.message = &quot;Expected ${0} not to be called with ${1} as this&quot;;
 </code></pre>
-
 <dl>
     <dt>`${0}`:</dt>
     <dd>The spy</dd>
@@ -476,11 +451,10 @@ refute.calledOn.message = &quot;Expected ${0} not to be called with ${1} as this
 </dl>
 
 <h3 id="alwayscalledon"><code>alwaysCalledOn()</code></h3>
-<pre><code class="js">assert.alwaysCalledOn(spy, obj);
+<pre><code class="language-js">assert.alwaysCalledOn(spy, obj);
 </code></pre>
-
 <p>Passes if the <code>spy</code> was always called with <code>obj</code> as its <code>this</code> value.</p>
-<pre><code class="js">var spy1 = this.spy();
+<pre><code class="language-js">var spy1 = this.spy();
 var spy2 = this.spy();
 var obj1 = {};
 var obj2 = {};
@@ -496,14 +470,12 @@ assert.alwaysCalledOn(spy1, obj2); // Fails
 assert.alwaysCalledOn(spy2, obj1); // Fails
 assert.alwaysCalledOn(spy2, obj2); // Passes
 </code></pre>
-
 <h4 id="messages_7">Messages</h4>
-<pre><code class="js">assert.alwaysCalledOn.message =
+<pre><code class="language-js">assert.alwaysCalledOn.message =
   &quot;Expected ${0} to always be called with ${1} as this but was called on ${2}&quot;;
 refute.alwaysCalledOn.message =
   &quot;Expected ${0} not to always be called with ${1} as this&quot;;
 </code></pre>
-
 <dl>
     <dt>`${0}`:</dt>
     <dd>The spy</dd>
@@ -514,11 +486,10 @@ refute.alwaysCalledOn.message =
 </dl>
 
 <h3 id="calledwith"><code>calledWith()</code></h3>
-<pre><code class="js">assert.calledWith(spy, arg1, arg2, ...)
+<pre><code class="language-js">assert.calledWith(spy, arg1, arg2, ...)
 </code></pre>
-
 <p>Passes if the <code>spy</code> was called at least once with the specified arguments. Other arguments may have been passed after the specified ones.</p>
-<pre><code class="js">var spy = this.spy();
+<pre><code class="language-js">var spy = this.spy();
 var arr = [1, 2, 3];
 spy(12);
 spy(42, 13);
@@ -529,14 +500,12 @@ assert.calledWith(spy, &quot;Hey&quot;); // Passes
 assert.calledWith(spy, &quot;Hey&quot;, 12); // Fails
 assert.calledWith(spy, &quot;Hey&quot;, arr); // Passes
 </code></pre>
-
 <h4 id="messages_8">Messages</h4>
-<pre><code class="js">assert.calledWith.message =
+<pre><code class="language-js">assert.calledWith.message =
   &quot;Expected ${0} to be called with arguments ${1}${2}&quot;;
 refute.calledWith.message =
   &quot;Expected ${0} not to be called with arguments ${1}${2}&quot;;
 </code></pre>
-
 <dl>
     <dt>`${0}`:</dt>
     <dd>The spy</dd>
@@ -547,11 +516,10 @@ refute.calledWith.message =
 </dl>
 
 <h3 id="calledwithnew"><code>calledWithNew()</code></h3>
-<pre><code class="js">assert.calledWithNew(spy);
+<pre><code class="language-js">assert.calledWithNew(spy);
 </code></pre>
-
 <p>Fails if the <code>spy</code> has never called with <code>new</code>.</p>
-<pre><code class="js">var spy = this.spy();
+<pre><code class="language-js">var spy = this.spy();
 
 assert.calledWithNew(spy); // Fails
 
@@ -561,24 +529,21 @@ assert.calledWithNew(spy); // Passes
 spy();
 assert.calledWithNew(spy); // Passes
 </code></pre>
-
 <h4 id="messages_9">Messages</h4>
-<pre><code class="js">assert.calledWithNew.message =
+<pre><code class="language-js">assert.calledWithNew.message =
   &quot;Expected ${spyObj} to be called with 'new' at least once but was never called with 'new'&quot;;
 refute.calledWithNew.message = &quot;Expected ${spyObj} to not be called with 'new'&quot;;
 </code></pre>
-
 <dl>
     <dt>`${spyObj}`:</dt>
     <dd>The spy</dd>
 </dl>
 
 <h3 id="alwayscalledwith"><code>alwaysCalledWith()</code></h3>
-<pre><code class="js">assert.alwaysCalledWith(spy, arg1, arg2, ...)
+<pre><code class="language-js">assert.alwaysCalledWith(spy, arg1, arg2, ...)
 </code></pre>
-
 <p>Passes if the <code>spy</code> was always called with the specified arguments. Other arguments may have been passed after the specified ones.</p>
-<pre><code class="js">var spy = this.spy();
+<pre><code class="language-js">var spy = this.spy();
 var arr = [1, 2, 3];
 spy(&quot;Hey&quot;, arr, 12);
 spy(&quot;Hey&quot;, arr, 13);
@@ -587,14 +552,12 @@ assert.alwaysCalledWith(spy, &quot;Hey&quot;); // Passes
 assert.alwaysCalledWith(spy, &quot;Hey&quot;, arr); // Passes
 assert.alwaysCalledWith(spy, &quot;Hey&quot;, arr, 12); // Fails
 </code></pre>
-
 <h4 id="messages_10">Messages</h4>
-<pre><code class="js">assert.alwaysCalledWith.message =
+<pre><code class="language-js">assert.alwaysCalledWith.message =
   &quot;Expected ${0} to always be called with arguments ${1}${2}&quot;;
 refute.alwaysCalledWith.message =
   &quot;Expected ${0} not to always be called with arguments${1}${2}&quot;;
 </code></pre>
-
 <dl>
     <dt>`${0}`:</dt>
     <dd>The spy</dd>
@@ -605,11 +568,10 @@ refute.alwaysCalledWith.message =
 </dl>
 
 <h3 id="alwayscalledwithnew"><code>alwaysCalledWithNew()</code></h3>
-<pre><code class="js">assert.alwaysCalledWithNew(spy);
+<pre><code class="language-js">assert.alwaysCalledWithNew(spy);
 </code></pre>
-
 <p>Passes when the <code>spy</code> has was always called with <code>new</code></p>
-<pre><code class="js">var spy = this.spy();
+<pre><code class="language-js">var spy = this.spy();
 
 assert.alwaysCalledWithNew(spy); // Fails
 
@@ -619,25 +581,22 @@ assert.alwaysCalledWithNew(spy); // Passes
 spy();
 assert.alwaysCalledWithNew(spy); // Fails
 </code></pre>
-
 <h4 id="messages_11">Messages</h4>
-<pre><code class="js">assert.calledWithNew.message =
+<pre><code class="language-js">assert.calledWithNew.message =
   &quot;Expected ${spyObj} to always be called with 'new'&quot;;
 refute.calledWithNew.message =
   &quot;Expected ${spyObj} to not always be called with 'new'&quot;;
 </code></pre>
-
 <dl>
     <dt>`${spyObj}`:</dt>
     <dd>The spy</dd>
 </dl>
 
 <h3 id="calledoncewith"><code>calledOnceWith()</code></h3>
-<pre><code class="js">assert.calledOnceWith(spy, arg1, arg2, ...)
+<pre><code class="language-js">assert.calledOnceWith(spy, arg1, arg2, ...)
 </code></pre>
-
 <p>Passes if the <code>spy</code> was called exactly once and with the specified arguments. Other arguments may have been passed after the specified ones.</p>
-<pre><code class="js">var spy = this.spy();
+<pre><code class="language-js">var spy = this.spy();
 var arr = [1, 2, 3];
 spy(12);
 
@@ -647,14 +606,12 @@ assert.calledOnceWith(spy, 42); // Fails
 spy(42, 13);
 assert.calledOnceWith(spy, 42, 13); // Fails
 </code></pre>
-
 <h4 id="messages_12">Messages</h4>
-<pre><code class="js">assert.calledOnceWith.message =
+<pre><code class="language-js">assert.calledOnceWith.message =
   &quot;Expected ${0} to be called once with arguments ${1}${2}&quot;;
 refute.calledOnceWith.message =
   &quot;Expected ${0} not to be called once with arguments ${1}${2}&quot;;
 </code></pre>
-
 <dl>
     <dt>`${0}`:</dt>
     <dd>The spy</dd>
@@ -665,11 +622,10 @@ refute.calledOnceWith.message =
 </dl>
 
 <h3 id="calledwithexactly"><code>calledWithExactly()</code></h3>
-<pre><code class="js">assert.calledWithExactly(spy, arg1, arg2, ...)
+<pre><code class="language-js">assert.calledWithExactly(spy, arg1, arg2, ...)
 </code></pre>
-
 <p>Passes if the <code>spy</code> was called at least once with exactly the arguments specified.</p>
-<pre><code class="js">var spy = this.spy();
+<pre><code class="language-js">var spy = this.spy();
 var arr = [1, 2, 3];
 spy(&quot;Hey&quot;, arr, 12);
 spy(&quot;Hey&quot;, arr, 13);
@@ -679,14 +635,12 @@ assert.calledWithExactly(spy, &quot;Hey&quot;, arr, 13); // Passes
 assert.calledWithExactly(spy, &quot;Hey&quot;, arr); // Fails
 assert.calledWithExactly(spy, &quot;Hey&quot;); // Fails
 </code></pre>
-
 <h4 id="messages_13">Messages</h4>
-<pre><code class="js">assert.calledWithExactly.message =
+<pre><code class="language-js">assert.calledWithExactly.message =
   &quot;Expected ${0} to be called with exact arguments ${1}${2}&quot;;
 refute.calledWithExactly.message =
   &quot;Expected ${0} not to be called with exact arguments${1}${2}&quot;;
 </code></pre>
-
 <dl>
     <dt>`${0}`:</dt>
     <dd>The spy</dd>
@@ -697,11 +651,10 @@ refute.calledWithExactly.message =
 </dl>
 
 <h3 id="alwayscalledwithexactly"><code>alwaysCalledWithExactly()</code></h3>
-<pre><code class="js">assert.alwaysCalledWithExactly(spy, arg1, arg2, ...)
+<pre><code class="language-js">assert.alwaysCalledWithExactly(spy, arg1, arg2, ...)
 </code></pre>
-
 <p>Passes if the <code>spy</code> was always called with exactly the arguments specified.</p>
-<pre><code class="js">var spy = this.spy();
+<pre><code class="language-js">var spy = this.spy();
 var arr = [1, 2, 3];
 spy(&quot;Hey&quot;, arr, 12);
 
@@ -712,14 +665,12 @@ assert.alwaysCalledWithExactly(spy, &quot;Hey&quot;); // Fails
 spy(&quot;Hey&quot;, arr, 13);
 assert.alwaysCalledWithExactly(spy, &quot;Hey&quot;, arr, 12); // Fails
 </code></pre>
-
 <h4 id="messages_14">Messages</h4>
-<pre><code class="js">assert.alwaysCalledWithExactly.message =
+<pre><code class="language-js">assert.alwaysCalledWithExactly.message =
   &quot;Expected ${0} to always be called with exact arguments ${1}${2}&quot;;
 refute.alwaysCalledWithExactly.message =
   &quot;Expected ${0} not to always be called with exact arguments${1}${2}&quot;;
 </code></pre>
-
 <dl>
     <dt>`${0}`:</dt>
     <dd>The spy</dd>
@@ -730,11 +681,10 @@ refute.alwaysCalledWithExactly.message =
 </dl>
 
 <h3 id="threw"><code>threw()</code></h3>
-<pre><code class="js">assert.threw(spy[, exception])
+<pre><code class="language-js">assert.threw(spy[, exception])
 </code></pre>
-
 <p>Passes if the <code>spy</code> threw at least once the specified <code>exception</code>. The <code>exception</code> can be a string denoting its type, or an actual object. If <code>exception</code> is not specified, the assertion passes if the <code>spy</code> ever threw any exception.</p>
-<pre><code class="js">var exception1 = new TypeError();
+<pre><code class="language-js">var exception1 = new TypeError();
 var exception2 = new TypeError();
 var exception3 = new TypeError();
 var spy = this.spy(function(exception) {
@@ -759,12 +709,10 @@ assert.threw(spy, exception3); // Fails
 
 callAndCatchException(spy, exception3); assert.threw(spy, exception3); // Passes
 </code></pre>
-
 <h4 id="messages_15">Messages</h4>
-<pre><code class="js">assert.threw.message = &quot;Expected ${0} to throw an exception${1}&quot;;
+<pre><code class="language-js">assert.threw.message = &quot;Expected ${0} to throw an exception${1}&quot;;
 refute.threw.message = &quot;Expected ${0} not to throw an exception${1}&quot;;
 </code></pre>
-
 <dl>
     <dt>`${0}`:</dt>
     <dd>The spy</dd>
@@ -773,11 +721,10 @@ refute.threw.message = &quot;Expected ${0} not to throw an exception${1}&quot;;
 </dl>
 
 <h3 id="alwaysthrew"><code>alwaysThrew()</code></h3>
-<pre><code class="js">assert.alwaysThrew(spy[, exception])
+<pre><code class="language-js">assert.alwaysThrew(spy[, exception])
 </code></pre>
-
 <p>Passes if the <code>spy</code> always threw the specified <code>exception</code>. The <code>exception</code> can be a string denoting its type, or an actual object. If <code>exception</code> is not specified, the assertion passes if the <code>spy</code> ever threw any exception.</p>
-<pre><code class="js">var exception1 = new TypeError();
+<pre><code class="language-js">var exception1 = new TypeError();
 var exception2 = new TypeError();
 var spy = this.spy(function(exception) {
     throw exception;
@@ -801,13 +748,11 @@ assert.alwaysThrew(spy); // Passes
 assert.alwaysThrew(spy, “TypeError”); // Passes
 assert.alwaysThrew(spy, exception1); // Fails
 </code></pre>
-
 <h4 id="messages_16">Messages</h4>
-<pre><code class="js">assert.alwaysThrew.message = &quot;Expected ${0} to always throw an exception${1}&quot;;
+<pre><code class="language-js">assert.alwaysThrew.message = &quot;Expected ${0} to always throw an exception${1}&quot;;
 refute.alwaysThrew.message =
   &quot;Expected ${0} not to always throw an exception${1}&quot;;
 </code></pre>
-
 <dl>
     <dt>`${0}`:</dt>
     <dd>The spy</dd>
@@ -838,15 +783,18 @@ refute.alwaysThrew.message =
   </div>
 
   <div class="rst-versions" role="note" aria-label="versions">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-          <a href="https://github.com/sinonjs/referee-sinon/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
-      
-      
-      
-    </span>
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/sinonjs/referee-sinon/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+    
+  </span>
 </div>
     <script>var base_url = '.';</script>
+    <script src="js/theme_extra.js" defer></script>
     <script src="js/theme.js" defer></script>
       <script src="search/main.js" defer></script>
     <script defer>
@@ -859,6 +807,6 @@ refute.alwaysThrew.message =
 </html>
 
 <!--
-MkDocs version : 1.1.2
-Build Date UTC : 2021-06-08 19:26:05.639809+00:00
+MkDocs version : 1.2.1
+Build Date UTC : 2021-07-27 10:50:40.072797+00:00
 -->
