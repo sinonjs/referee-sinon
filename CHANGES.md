@@ -1,5 +1,38 @@
 # Changes
 
+## 10.1.0
+
+- [`f473c75`](https://github.com/sinonjs/referee-sinon/commit/f473c7568157d5e3ca5e9dda53086c2f558e1ad4)
+  Improve messages from calledOnceWith* (Morgan Roderick)
+    >
+    > Add support for differentianting between when a method has been called
+    > an unexpected number of times and when it's been called with unexpected
+    > arguments.
+    >
+    > The old message
+    >
+    > ```
+    > [assert.calledOnceWith] Expected [Function (anonymous)] to be called once with arguments 1
+    > ```
+    >
+    > Does not reveal whether the spy was called multiple times or with unexpected arguments
+    >
+    > After this changeset, there are two messages:
+    >
+    > ```
+    > [assert.calledOnceWith] Expected [Function (anonymous)] to be called once, but was called 2 times
+    > [assert.calledOnceWith] Expected [Function (anonymous)] to be called with arguments 2, but was called with 1
+    > ```
+    >
+    > These messages clearly indicate which of the two combined expectations were unmet
+    >
+    > * calledOnceWith
+    > * calledOnceWithExactly
+    > * calledOnceWithMatch
+    >
+
+_Released by Morgan Roderick on 2021-07-27._
+
 ## 10.0.0
 
 - [`b3fff89`](https://github.com/sinonjs/referee-sinon/commit/b3fff89c7c2a7346b7ddc80d6fd735754bd3fc1b)
