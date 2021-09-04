@@ -19,9 +19,13 @@
     "prepublishOnly": "npm run build && mkdocs gh-deploy -r upstream || mkdocs gh-deploy -r origin",
     "test": "mocha 'lib/**/*.test.js'",
     "test-check-coverage": "npm run test-coverage && nyc check-coverage --branches 100 --functions 100 --lines 100",
-    "test-cloud": "npm run test-headless -- --wd",
+    "test-cloud": "npm run test-edge && npm run test-firefox && npm run test-safari",
+    "test-edge": "BROWSER_NAME=MicrosoftEdge mochify --config mochify.webdriver.js",
+    "test-firefox": "BROWSER_NAME=firefox mochify --config mochify.webdriver.js",
+    "test-safari": "BROWSER_NAME=safari mochify --config mochify.webdriver.js",
+    "test-ie": "BROWSER_NAME=\"internet explorer\" mochify --config mochify.webdriver.js",
     "test-coverage": "nyc --reporter text --reporter html --reporter lcovonly npm run test",
-    "test-headless": "mochify --recursive -R dot \"./lib/*.test.js\"",
+    "test-headless": "mochify --driver puppeteer",
     "prettier:check": "prettier --check '**/*.{js,css,md}'",
     "prettier:write": "prettier --write '**/*.{js,css,md}'",
     "preversion": "npm run test-check-coverage",
@@ -32,6 +36,11 @@
     "*.{js,css,md}": "prettier --check",
     "*.js": "eslint"
   },
+  "mochify": {
+    "reporter": "dot",
+    "bundle": "esbuild --bundle --sourcemap --define:process.env={} --define:global=window",
+    "spec": "lib/**/*.test.js"
+  },
   "files": [
     "dist/",
     "docs/",
@@ -39,6 +48,9 @@
     "!lib/**/*.test.js"
   ],
   "devDependencies": {
+    "@mochify/cli": "^0.1.1",
+    "@mochify/driver-puppeteer": "^0.1.1",
+    "@mochify/driver-webdriver": "^0.1.1",
     "@sinonjs/eslint-config": "^4.0.3",
     "@studio/changes": "^2.2.0",
     "esbuild": "^0.12.25",
@@ -46,7 +58,6 @@
     "lint-staged": "^10.0.7",
     "mkdirp": "^1.0.3",
     "mocha": "^9.1.1",
-    "mochify": "^8.0.0",
     "nyc": "^15.0.0",
     "prettier": "^2.1.2",
     "rollup-plugin-commonjs": "^10.1.0"
