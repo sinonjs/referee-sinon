@@ -46,7 +46,7 @@
     "lint-staged": "^10.0.7",
     "mkdirp": "^1.0.3",
     "mocha": "^9.2.0",
-    "mochify": "^9.1.0",
+    "mochify": "^9.2.0",
     "nyc": "^15.0.0",
     "prettier": "^2.1.2",
     "rollup-plugin-commonjs": "^10.1.0"
