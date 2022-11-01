@@ -11,9 +11,8 @@
     "url": "https://github.com/sinonjs/referee-sinon"
   },
   "scripts": {
-    "build": "npm run build:dist-folder && npm run build:bundle",
+    "build": "mkdir -p dist && npm run build:bundle",
     "build:bundle": "esbuild lib/referee-sinon.js --bundle --outfile=dist/referee-sinon.js",
-    "build:dist-folder": "mkdirp dist",
     "lint": "eslint .",
     "prepublishOnly": "npm run build && mkdocs gh-deploy -r upstream || mkdocs gh-deploy -r origin",
     "test": "mocha 'lib/**/*.test.js'",
@@ -44,7 +43,6 @@
     "esbuild": "^0.15.12",
     "husky": "^8.0.1",
     "lint-staged": "^10.0.7",
-    "mkdirp": "^1.0.3",
     "mocha": "^10.1.0",
     "mochify": "^9.2.0",
     "nyc": "^15.1.0",
