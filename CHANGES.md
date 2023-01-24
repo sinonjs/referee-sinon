@@ -1,5 +1,23 @@
 # Changes
 
+## 11.0.0
+
+- [`45d4c2b`](https://github.com/sinonjs/referee-sinon/commit/45d4c2b77e4b9d54fca467e6a3c00f1116ea27c9)
+  Upgrade referee and sinon (Maximilian Antoni)
+- [`636daa8`](https://github.com/sinonjs/referee-sinon/commit/636daa89c8b7206e4bce7d5a42e8997c76df4eb9)
+  Support import from es modules (Maximilian Antoni)
+    >
+    > Without explicitly naming all exports, this fails in es modules:
+    > import { assert, refute, match, sinon } from '@sinonjs/referee-sinon';
+    >
+- [`74cfd6f`](https://github.com/sinonjs/referee-sinon/commit/74cfd6f3b34cca2b88c7551d7e396af38656e994)
+  Fix pre-commit hook (Maximilian Antoni)
+    >
+    > The `npm bin` command is not supported anymore.
+    >
+
+_Released by [Maximilian Antoni](https://github.com/mantoni) on 2023-01-24._
+
 ## 10.1.1
 
 - [`81639a0`](https://github.com/sinonjs/referee-sinon/commit/81639a0f8c3d4fd4eb17d2df6af70ed23219f70d)
