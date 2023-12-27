@@ -49,9 +49,9 @@
     "prettier": "^2.7.1"
   },
   "dependencies": {
-    "@sinonjs/commons": "^2.0.0",
-    "@sinonjs/referee": "^10.0.0",
-    "sinon": "^15.0.1",
+    "@sinonjs/commons": "^3.0.0",
+    "@sinonjs/referee": "^11.0.0",
+    "sinon": "^17.0.1",
     "util": "^0.12.3"
   }
 }
