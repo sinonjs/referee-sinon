@@ -1,5 +1,32 @@
 # Changes
 
+## 12.0.0
+
+- [`1144e38`](https://github.com/sinonjs/referee-sinon/commit/1144e38811b0aa690418a04321b1f026b5491053)
+  Use new mochfiy (Maximilian Antoni)
+- [`6eca6e5`](https://github.com/sinonjs/referee-sinon/commit/6eca6e56481c8fd616bff156ece73a3ed2f52756)
+  Drop node 12 and 14, support node 18 and 20 (Maximilian Antoni)
+- [`30d712b`](https://github.com/sinonjs/referee-sinon/commit/30d712bd1c43223d08015a26e96db3725a1af5cf)
+  Update GitHub actions (Maximilian Antoni)
+- [`b1238cf`](https://github.com/sinonjs/referee-sinon/commit/b1238cf3fa0839d561cb769612770f4af7604a59)
+  Upgrade Studio Changes (Maximilian Antoni)
+- [`739f1d1`](https://github.com/sinonjs/referee-sinon/commit/739f1d10837ddb36c87a608c59ce8a58c967cd5b)
+  npm audit (Maximilian Antoni)
+- [`d61fcce`](https://github.com/sinonjs/referee-sinon/commit/d61fcce940059736b9f62a3297fc1f2981adc26e)
+  Upgrade prettier to v3 and reformat files (Maximilian Antoni)
+- [`97e28bf`](https://github.com/sinonjs/referee-sinon/commit/97e28bfce6fafeaa30498b0ec7e1708355bfcf50)
+  Upgrade husky and lint-staged (Maximilian Antoni)
+- [`bf9185d`](https://github.com/sinonjs/referee-sinon/commit/bf9185d00466af59cc22ce0fa913dd56baba79f0)
+  Upgrade esbuild (Maximilian Antoni)
+- [`bb7ee93`](https://github.com/sinonjs/referee-sinon/commit/bb7ee938767a584e0c5907a7100451f1c2750704)
+  Upgrade @sinonjs/eslint-config (Maximilian Antoni)
+- [`0ad59c9`](https://github.com/sinonjs/referee-sinon/commit/0ad59c9b47ea0dbaad5c94842e706dbf18b84f87)
+  Update mocha (Maximilian Antoni)
+- [`f235626`](https://github.com/sinonjs/referee-sinon/commit/f235626d01f4b3d08a38670f17ce2ec13b2b4dd7)
+  Update @sinonjs/commons, @sinonjs/referee and sinon to latest (Maximilian Antoni)
+
+_Released by [Maximilian Antoni](https://github.com/mantoni) on 2023-12-29._
+
 ## 11.0.0
 
 - [`45d4c2b`](https://github.com/sinonjs/referee-sinon/commit/45d4c2b77e4b9d54fca467e6a3c00f1116ea27c9)
