@@ -17,9 +17,12 @@
     "prepublishOnly": "npm run build && mkdocs gh-deploy -r upstream || mkdocs gh-deploy -r origin",
     "test": "mocha 'lib/**/*.test.js'",
     "test-check-coverage": "npm run test-coverage && nyc check-coverage --branches 100 --functions 100 --lines 100",
-    "test-cloud": "npm run test-headless -- --wd",
+    "test-cloud": "npm run test-edge && npm run test-firefox && npm run test-safari",
+    "test-edge": "BROWSER_NAME=MicrosoftEdge mochify --config mochify.webdriver.js",
+    "test-firefox": "BROWSER_NAME=firefox mochify --config mochify.webdriver.js",
+    "test-safari": "BROWSER_NAME=safari mochify --config mochify.webdriver.js",
     "test-coverage": "nyc --reporter text --reporter html --reporter lcovonly npm run test",
-    "test-headless": "mochify --recursive -R dot \"./lib/*.test.js\"",
+    "test-headless": "mochify --driver puppeteer",
     "prepare": "husky install",
     "prettier:check": "prettier --check '**/*.{js,css,md}'",
     "prettier:write": "prettier --write '**/*.{js,css,md}'",
@@ -31,6 +34,10 @@
     "*.{js,css,md}": "prettier --check",
     "*.js": "eslint"
   },
+  "mochify": {
+    "bundle": "browserify --debug",
+    "spec": "lib/**/*.test.js"
+  },
   "files": [
     "dist/",
     "docs/",
@@ -38,13 +45,16 @@
     "!lib/**/*.test.js"
   ],
   "devDependencies": {
+    "@mochify/cli": "^0.4.1",
+    "@mochify/driver-puppeteer": "^0.3.1",
+    "@mochify/driver-webdriver": "^0.2.1",
     "@sinonjs/eslint-config": "^5.0.2",
     "@studio/changes": "^3.0.0",
+    "browserify": "^17.0.0",
     "esbuild": "^0.19.10",
     "husky": "^8.0.3",
     "lint-staged": "^15.2.0",
     "mocha": "^10.2.0",
-    "mochify": "^9.2.0",
     "nyc": "^15.1.0",
     "prettier": "^3.1.1"
   },
