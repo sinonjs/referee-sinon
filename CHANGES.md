@@ -1,5 +1,42 @@
 # Changes
 
+## 12.0.1
+
+- [`389bd23`](https://github.com/sinonjs/referee-sinon/commit/389bd23d4b66cf171667a9c67ab56a02b75ba8c3)
+  Bump es5-ext from 0.10.53 to 0.10.63 (#136) (dependabot[bot])
+    >
+    > Bumps [es5-ext](https://github.com/medikoo/es5-ext) from 0.10.53 to 0.10.63.
+    > - [Release notes](https://github.com/medikoo/es5-ext/releases)
+    > - [Changelog](https://github.com/medikoo/es5-ext/blob/main/CHANGELOG.md)
+    > - [Commits](https://github.com/medikoo/es5-ext/compare/v0.10.53...v0.10.63)
+    >
+    > ---
+    > updated-dependencies:
+    > - dependency-name: es5-ext
+    >   dependency-type: indirect
+    > ...
+    >
+    > Signed-off-by: dependabot[bot] <support@github.com>
+    > Co-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+- [`92a956f`](https://github.com/sinonjs/referee-sinon/commit/92a956f2f810f4db578ea34c7ce7687c3a0fb3e9)
+  Bump ip from 1.1.8 to 1.1.9 (#135) (dependabot[bot])
+    >
+    > Bumps [ip](https://github.com/indutny/node-ip) from 1.1.8 to 1.1.9.
+    > - [Commits](https://github.com/indutny/node-ip/compare/v1.1.8...v1.1.9)
+    >
+    > ---
+    > updated-dependencies:
+    > - dependency-name: ip
+    >   dependency-type: indirect
+    > ...
+    >
+    > Signed-off-by: dependabot[bot] <support@github.com>
+    > Co-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+- [`f87bdeb`](https://github.com/sinonjs/referee-sinon/commit/f87bdebd6ae55ac482c715443bb38f092a9e79be)
+  chore: upgrade actions/checkout to 4 (Morgan Roderick)
+
+_Released by Morgan Roderick on 2026-03-20._
+
 ## 12.0.0
 
 - [`1144e38`](https://github.com/sinonjs/referee-sinon/commit/1144e38811b0aa690418a04321b1f026b5491053)
